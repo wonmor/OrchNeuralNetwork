@@ -74,7 +74,7 @@ end
 
 platform :ios do
   desc "Dump what App Store Connect actually has for this app"
-  lane :debug do
+  lane :inspect_asc do
     connect_login
     app = Spaceship::ConnectAPI::App.find(APP_ID)
     UI.message("app id #{app.id} primary_locale=#{app.primary_locale}")
@@ -82,11 +82,11 @@ platform :ios do
       UI.message("version #{v.version_string} platform=#{v.platform} state=#{v.app_store_state} id=#{v.id}")
       (v.app_store_version_localizations || []).each do |l|
         UI.message("  loc #{l.locale}: desc=#{(l.description || '').length} chars, keywords=#{(l.keywords || '').length}")
-        sets = Spaceship::ConnectAPI::AppScreenshotSet.all(app_store_version_localization_id: l.id)
-        sets.each { |s| UI.message("    screenshots #{s.screenshot_display_type}: #{s.app_screenshots.count}") }
+        sets = Spaceship::ConnectAPI::AppScreenshotSet.all(app_store_version_localization_id: l.id, includes: "appScreenshots")
+        sets.each { |s| UI.message("    screenshots #{s.screenshot_display_type}: #{(s.app_screenshots || []).count}") }
       end
     end
-    infos = app.get_app_infos
+    infos = []
     infos.each { |i| UI.message("appInfo #{i.id} state=#{i.app_store_state} ") }
   end
 end
