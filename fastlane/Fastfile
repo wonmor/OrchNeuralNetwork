@@ -71,3 +71,64 @@ platform :ios do
     )
   end
 end
+
+platform :ios do
+  desc "Dump what App Store Connect actually has for this app"
+  lane :debug do
+    connect_login
+    app = Spaceship::ConnectAPI::App.find(APP_ID)
+    UI.message("app id #{app.id} primary_locale=#{app.primary_locale}")
+    app.get_app_store_versions(includes: "appStoreVersionLocalizations").each do |v|
+      UI.message("version #{v.version_string} platform=#{v.platform} state=#{v.app_store_state} id=#{v.id}")
+      (v.app_store_version_localizations || []).each do |l|
+        UI.message("  loc #{l.locale}: desc=#{(l.description || '').length} chars, keywords=#{(l.keywords || '').length}")
+        sets = Spaceship::ConnectAPI::AppScreenshotSet.all(app_store_version_localization_id: l.id)
+        sets.each { |s| UI.message("    screenshots #{s.screenshot_display_type}: #{s.app_screenshots.count}") }
+      end
+    end
+    infos = app.get_app_infos
+    infos.each { |i| UI.message("appInfo #{i.id} state=#{i.app_store_state} ") }
+  end
+end
+
+platform :ios do
+  desc "Set price to Free (USA base territory) and make the app available in all territories"
+  lane :pricing do
+    connect_login
+    app = Spaceship::ConnectAPI::App.find(APP_ID)
+    rc = Spaceship::ConnectAPI.client.tunes_request_client
+
+    points = rc.get("v1/apps/#{app.id}/appPricePoints", { "filter[territory]" => "USA", "limit" => 200 }).body["data"]
+    free = points.find { |pt| pt["attributes"]["customerPrice"].to_f == 0.0 }
+    UI.user_error!("No free price point found") unless free
+    UI.message("free price point #{free['id']}")
+
+    body = { data: { type: "appPriceSchedules",
+                     relationships: { app: { data: { type: "apps", id: app.id } },
+                                      baseTerritory: { data: { type: "territories", id: "USA" } },
+                                      manualPrices: { data: [{ type: "appPrices", id: "${price-free}" }] } } },
+             included: [{ type: "appPrices", id: "${price-free}", attributes: { startDate: nil },
+                          relationships: { appPricePoint: { data: { type: "appPricePoints", id: free["id"] } } } }] }
+    rc.post("v1/appPriceSchedules", body)
+    UI.success("Price schedule set to Free")
+
+    territories = rc.get("v1/territories", { "limit" => 200 }).body["data"].map { |t| t["id"] }
+    UI.message("#{territories.count} territories")
+    begin
+      existing = rc.get("v2/appAvailabilities/#{app.id}", { "include" => "territoryAvailabilities", "limit[territoryAvailabilities]" => 1 }).body
+      UI.message("availability already exists: #{existing['data']['id']}")
+    rescue => e
+      UI.message("no availability yet (#{e.class}), creating")
+      inc = territories.each_with_index.map do |t, i|
+        { type: "territoryAvailabilities", id: "${t#{i}}", attributes: { available: true },
+          relationships: { territory: { data: { type: "territories", id: t } } } }
+      end
+      body = { data: { type: "appAvailabilities", attributes: { availableInNewTerritories: true },
+                       relationships: { app: { data: { type: "apps", id: app.id } },
+                                        territoryAvailabilities: { data: inc.map { |x| { type: "territoryAvailabilities", id: x[:id] } } } } },
+               included: inc }
+      rc.post("v2/appAvailabilities", body)
+      UI.success("Available in #{territories.count} territories")
+    end
+  end
+end

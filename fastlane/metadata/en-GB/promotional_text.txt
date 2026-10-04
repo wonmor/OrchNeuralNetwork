@@ -1,0 +1,1 @@
+Type a sentence and watch a real 82-million-parameter GPT-2 predict your next word, layer by layer, entirely on your device.

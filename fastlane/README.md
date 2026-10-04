@@ -47,6 +47,22 @@ Show build processing and version state
 
 Submit version 1.0 for review using the latest processed build
 
+### ios debug
+
+```sh
+[bundle exec] fastlane ios debug
+```
+
+Dump what App Store Connect actually has for this app
+
+### ios pricing
+
+```sh
+[bundle exec] fastlane ios pricing
+```
+
+Set price to Free (USA base territory) and make the app available in all territories
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
