@@ -1,0 +1,544 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		12E88F0056E245C8640CF0F6 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA3629CDA98F4EFF69F81D /* AboutView.swift */; };
+		277D3968BD5254B68343D1DE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DE1E81123E557F978309E /* Theme.swift */; };
+		278DCA33AC647B1042BF221A /* merges.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8D076A71C2CADBF735D3117E /* merges.txt */; };
+		299C82A135319CA115E40987 /* distilgpt2.tsw in Resources */ = {isa = PBXBuildFile; fileRef = 450EFD646D2863D1B4445D58 /* distilgpt2.tsw */; };
+		323E423C4586515E91740761 /* WeightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28DF5D0831958830E37F924 /* WeightsView.swift */; };
+		32D0AE6EDDC6D3AF323D06C0 /* ModelReferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBAE3ED2C564372EF30BC44 /* ModelReferenceTests.swift */; };
+		421D214D008546297B30B844 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99EFD0A5593E04205CAFA5D /* Assets.xcassets */; };
+		43DCB2D0765A60D94D6FFBBB /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 69ECF8094044D1AFCEBC3498 /* PrivacyInfo.xcprivacy */; };
+		5B852FDB05C213FD4F1DF8B2 /* vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = 285014FEFAC718CFEC9B95C8 /* vocab.json */; };
+		629D9569102542A5D40547E8 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CFEF347A5C6ED960C63751 /* LearnView.swift */; };
+		8CDBE3CF81A25D274BDDD563 /* reference.json in Resources */ = {isa = PBXBuildFile; fileRef = 89C12F361B8D0F8A10757646 /* reference.json */; };
+		8F82B70F92A796AC0C553B8C /* WeightFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059616D84E37E6D65A94D1BB /* WeightFile.swift */; };
+		941157658B04C0B05C28BD55 /* InsideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF48909C01E2C8B8AD8DBEF /* InsideView.swift */; };
+		B13348206DAE40DEE3601D97 /* GPT2Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62332BAD66DB17030DA109E /* GPT2Model.swift */; };
+		B32D2104B886053633A2E609 /* BPETokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A1F4B3BBFCCB3F3E5917E /* BPETokenizer.swift */; };
+		C298CA13276B305E5A62EBD4 /* PredictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8C8593477A37EE74C9254 /* PredictView.swift */; };
+		CE399B5DC9C49420915EB611 /* InferenceEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB77360D49518F4D2045B0F /* InferenceEngine.swift */; };
+		DFE147ADA800006468B0007B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32FBE32B6163A7ED93E7FF1 /* ContentView.swift */; };
+		EEC5712DE29F063BC8258922 /* OrchNeuralNetworkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549EAC61E840586EC16F7B52 /* OrchNeuralNetworkApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D1DD3D03437C9C37A721E526 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D172B356338DB1376B4E15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A651504A774AA00782323FD4;
+			remoteInfo = OrchNeuralNetwork;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		059616D84E37E6D65A94D1BB /* WeightFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightFile.swift; sourceTree = "<group>"; };
+		1ADA3629CDA98F4EFF69F81D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		285014FEFAC718CFEC9B95C8 /* vocab.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vocab.json; sourceTree = "<group>"; };
+		304A1F4B3BBFCCB3F3E5917E /* BPETokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPETokenizer.swift; sourceTree = "<group>"; };
+		37CFEF347A5C6ED960C63751 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
+		3EB77360D49518F4D2045B0F /* InferenceEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceEngine.swift; sourceTree = "<group>"; };
+		450EFD646D2863D1B4445D58 /* distilgpt2.tsw */ = {isa = PBXFileReference; path = distilgpt2.tsw; sourceTree = "<group>"; };
+		549EAC61E840586EC16F7B52 /* OrchNeuralNetworkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchNeuralNetworkApp.swift; sourceTree = "<group>"; };
+		57DFA1A6DA997ED84EA02DAB /* OrchNeuralNetwork.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = OrchNeuralNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FBAE3ED2C564372EF30BC44 /* ModelReferenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelReferenceTests.swift; sourceTree = "<group>"; };
+		69ECF8094044D1AFCEBC3498 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6E4DE1E81123E557F978309E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		72F8C8593477A37EE74C9254 /* PredictView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictView.swift; sourceTree = "<group>"; };
+		89C12F361B8D0F8A10757646 /* reference.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = reference.json; sourceTree = "<group>"; };
+		8D076A71C2CADBF735D3117E /* merges.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = merges.txt; sourceTree = "<group>"; };
+		A32FBE32B6163A7ED93E7FF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ABC04093F76A8BDB39FC4B2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B28DF5D0831958830E37F924 /* WeightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsView.swift; sourceTree = "<group>"; };
+		C99EFD0A5593E04205CAFA5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DDF48909C01E2C8B8AD8DBEF /* InsideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideView.swift; sourceTree = "<group>"; };
+		EC4D86B163C416B2F469DD04 /* OrchNeuralNetworkTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = OrchNeuralNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F62332BAD66DB17030DA109E /* GPT2Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPT2Model.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		02885D6D85B1AE0C9D0BF4B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				57DFA1A6DA997ED84EA02DAB /* OrchNeuralNetwork.app */,
+				EC4D86B163C416B2F469DD04 /* OrchNeuralNetworkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		146B312C8BC8C56AA69CD07D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C99EFD0A5593E04205CAFA5D /* Assets.xcassets */,
+				69ECF8094044D1AFCEBC3498 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3E17BF94D11C38730C1CD812 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				450EFD646D2863D1B4445D58 /* distilgpt2.tsw */,
+				8D076A71C2CADBF735D3117E /* merges.txt */,
+				89C12F361B8D0F8A10757646 /* reference.json */,
+				285014FEFAC718CFEC9B95C8 /* vocab.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4C36AD4F1EC778CAB2115E5F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1ADA3629CDA98F4EFF69F81D /* AboutView.swift */,
+				A32FBE32B6163A7ED93E7FF1 /* ContentView.swift */,
+				DDF48909C01E2C8B8AD8DBEF /* InsideView.swift */,
+				37CFEF347A5C6ED960C63751 /* LearnView.swift */,
+				72F8C8593477A37EE74C9254 /* PredictView.swift */,
+				6E4DE1E81123E557F978309E /* Theme.swift */,
+				B28DF5D0831958830E37F924 /* WeightsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5E8B82622AA0865D280F6762 /* OrchNeuralNetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				5FBAE3ED2C564372EF30BC44 /* ModelReferenceTests.swift */,
+			);
+			path = OrchNeuralNetworkTests;
+			sourceTree = "<group>";
+		};
+		887488FC4BE00FC60E8D2DE0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				549EAC61E840586EC16F7B52 /* OrchNeuralNetworkApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8A8A86972ED321B552C155D4 /* OrchNeuralNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				ABC04093F76A8BDB39FC4B2D /* Info.plist */,
+				887488FC4BE00FC60E8D2DE0 /* App */,
+				D92997317F9D0A49F6EC6205 /* Engine */,
+				146B312C8BC8C56AA69CD07D /* Resources */,
+				4C36AD4F1EC778CAB2115E5F /* Views */,
+			);
+			path = OrchNeuralNetwork;
+			sourceTree = "<group>";
+		};
+		D92997317F9D0A49F6EC6205 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				304A1F4B3BBFCCB3F3E5917E /* BPETokenizer.swift */,
+				F62332BAD66DB17030DA109E /* GPT2Model.swift */,
+				3EB77360D49518F4D2045B0F /* InferenceEngine.swift */,
+				059616D84E37E6D65A94D1BB /* WeightFile.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		EAD89EDDC574B02EDA440F2C = {
+			isa = PBXGroup;
+			children = (
+				3E17BF94D11C38730C1CD812 /* Model */,
+				8A8A86972ED321B552C155D4 /* OrchNeuralNetwork */,
+				5E8B82622AA0865D280F6762 /* OrchNeuralNetworkTests */,
+				02885D6D85B1AE0C9D0BF4B1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		717DDDB2231C039C6FDC1A9C /* OrchNeuralNetworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B7410149C705AB57A14A3FF /* Build configuration list for PBXNativeTarget "OrchNeuralNetworkTests" */;
+			buildPhases = (
+				8B048ADFB05F4D02AC670972 /* Sources */,
+				7C57052F2667EB10A94768DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04FB53FC41178FA3C4D147F6 /* PBXTargetDependency */,
+			);
+			name = OrchNeuralNetworkTests;
+			packageProductDependencies = (
+			);
+			productName = OrchNeuralNetworkTests;
+			productReference = EC4D86B163C416B2F469DD04 /* OrchNeuralNetworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A651504A774AA00782323FD4 /* OrchNeuralNetwork */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3913667251C5D50705E74F89 /* Build configuration list for PBXNativeTarget "OrchNeuralNetwork" */;
+			buildPhases = (
+				3D58C1F91523B30F64B7FBD0 /* Sources */,
+				ACA47FA318046E4E3DCCAE55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OrchNeuralNetwork;
+			packageProductDependencies = (
+			);
+			productName = OrchNeuralNetwork;
+			productReference = 57DFA1A6DA997ED84EA02DAB /* OrchNeuralNetwork.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7D172B356338DB1376B4E15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					717DDDB2231C039C6FDC1A9C = {
+						DevelopmentTeam = Z64KRUX3W3;
+						ProvisioningStyle = Automatic;
+					};
+					A651504A774AA00782323FD4 = {
+						DevelopmentTeam = Z64KRUX3W3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4B7449D8B0F658551CBC2EFB /* Build configuration list for PBXProject "OrchNeuralNetwork" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = EAD89EDDC574B02EDA440F2C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 02885D6D85B1AE0C9D0BF4B1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A651504A774AA00782323FD4 /* OrchNeuralNetwork */,
+				717DDDB2231C039C6FDC1A9C /* OrchNeuralNetworkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7C57052F2667EB10A94768DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CDBE3CF81A25D274BDDD563 /* reference.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACA47FA318046E4E3DCCAE55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				421D214D008546297B30B844 /* Assets.xcassets in Resources */,
+				43DCB2D0765A60D94D6FFBBB /* PrivacyInfo.xcprivacy in Resources */,
+				299C82A135319CA115E40987 /* distilgpt2.tsw in Resources */,
+				278DCA33AC647B1042BF221A /* merges.txt in Resources */,
+				5B852FDB05C213FD4F1DF8B2 /* vocab.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D58C1F91523B30F64B7FBD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12E88F0056E245C8640CF0F6 /* AboutView.swift in Sources */,
+				B32D2104B886053633A2E609 /* BPETokenizer.swift in Sources */,
+				DFE147ADA800006468B0007B /* ContentView.swift in Sources */,
+				B13348206DAE40DEE3601D97 /* GPT2Model.swift in Sources */,
+				CE399B5DC9C49420915EB611 /* InferenceEngine.swift in Sources */,
+				941157658B04C0B05C28BD55 /* InsideView.swift in Sources */,
+				629D9569102542A5D40547E8 /* LearnView.swift in Sources */,
+				EEC5712DE29F063BC8258922 /* OrchNeuralNetworkApp.swift in Sources */,
+				C298CA13276B305E5A62EBD4 /* PredictView.swift in Sources */,
+				277D3968BD5254B68343D1DE /* Theme.swift in Sources */,
+				8F82B70F92A796AC0C553B8C /* WeightFile.swift in Sources */,
+				323E423C4586515E91740761 /* WeightsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B048ADFB05F4D02AC670972 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D0AE6EDDC6D3AF323D06C0 /* ModelReferenceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04FB53FC41178FA3C4D147F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A651504A774AA00782323FD4 /* OrchNeuralNetwork */;
+			targetProxy = D1DD3D03437C9C37A721E526 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		311905FF6EEAEF1A97E03FB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = OrchNeuralNetwork/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Orch Neural Network";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.OrchNeuralNetwork;
+				PRODUCT_NAME = OrchNeuralNetwork;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		36EC66B2A7819016EFE63990 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.OrchNeuralNetworkTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrchNeuralNetwork.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OrchNeuralNetwork";
+			};
+			name = Release;
+		};
+		6A1F6E667BBBE3B17B4D3CB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = OrchNeuralNetwork/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Orch Neural Network";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.OrchNeuralNetwork;
+				PRODUCT_NAME = OrchNeuralNetwork;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		95F2E073A557858704B886A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = Z64KRUX3W3;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "-Ounchecked";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D41A86D05A72FEB5EA1B6B7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.OrchNeuralNetworkTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrchNeuralNetwork.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OrchNeuralNetwork";
+			};
+			name = Debug;
+		};
+		F27E22DECA9367841BB96D7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = Z64KRUX3W3;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-Ounchecked";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3913667251C5D50705E74F89 /* Build configuration list for PBXNativeTarget "OrchNeuralNetwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A1F6E667BBBE3B17B4D3CB0 /* Debug */,
+				311905FF6EEAEF1A97E03FB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4B7449D8B0F658551CBC2EFB /* Build configuration list for PBXProject "OrchNeuralNetwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F27E22DECA9367841BB96D7D /* Debug */,
+				95F2E073A557858704B886A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6B7410149C705AB57A14A3FF /* Build configuration list for PBXNativeTarget "OrchNeuralNetworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D41A86D05A72FEB5EA1B6B7A /* Debug */,
+				36EC66B2A7819016EFE63990 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7D172B356338DB1376B4E15 /* Project object */;
+}

@@ -1,0 +1,95 @@
+name: OrchNeuralNetwork
+options:
+  bundleIdPrefix: com.johnseong
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+settings:
+  base:
+    DEVELOPMENT_TEAM: Z64KRUX3W3
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_VERSION: "5.0"
+    SWIFT_STRICT_CONCURRENCY: minimal
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    TARGETED_DEVICE_FAMILY: "1,2"
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+    SWIFT_EMIT_LOC_STRINGS: YES
+    OTHER_SWIFT_FLAGS: "-Ounchecked"
+  configs:
+    Debug:
+      OTHER_SWIFT_FLAGS: "-Ounchecked"
+      SWIFT_OPTIMIZATION_LEVEL: "-O"
+targets:
+  OrchNeuralNetwork:
+    type: application
+    platform: iOS
+    sources:
+      - path: OrchNeuralNetwork
+      - path: Model/distilgpt2.tsw
+        buildPhase: resources
+      - path: Model/vocab.json
+        buildPhase: resources
+      - path: Model/merges.txt
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.johnseong.OrchNeuralNetwork
+        PRODUCT_NAME: OrchNeuralNetwork
+        INFOPLIST_KEY_CFBundleDisplayName: Orch Neural Network
+    info:
+      path: OrchNeuralNetwork/Info.plist
+      properties:
+        CFBundleDisplayName: Orch Neural Network
+        CFBundleName: OrchNeuralNetwork
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSRequiresIPhoneOS: true
+        ITSAppUsesNonExemptEncryption: false
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UIRequiresFullScreen: false
+        UIApplicationSupportsIndirectInputEvents: true
+        UIUserInterfaceStyle: Dark
+        NSHumanReadableCopyright: "© 2026 John Seong"
+  OrchNeuralNetworkTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: OrchNeuralNetworkTests
+      - path: Model/reference.json
+        buildPhase: resources
+    dependencies:
+      - target: OrchNeuralNetwork
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.johnseong.OrchNeuralNetworkTests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/OrchNeuralNetwork.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OrchNeuralNetwork
+        BUNDLE_LOADER: $(TEST_HOST)
+schemes:
+  OrchNeuralNetwork:
+    build:
+      targets:
+        OrchNeuralNetwork: all
+        OrchNeuralNetworkTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - OrchNeuralNetworkTests
+    archive:
+      config: Release

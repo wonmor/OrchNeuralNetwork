@@ -1,0 +1,658 @@
+{
+ "model": "distilgpt2",
+ "config": {
+  "n_layer": 6,
+  "n_head": 12,
+  "n_embd": 768,
+  "n_ctx": 1024,
+  "n_vocab": 50257,
+  "layer_norm_epsilon": 1e-05
+ },
+ "notes": "float32 numpy forward from float16 weights in distilgpt2.tsw; gelu_new; causal attention; probs are softmax over all 50257 logits",
+ "prompts": [
+  {
+   "prompt": "The quick brown fox",
+   "token_ids": [
+    464,
+    2068,
+    7586,
+    21831
+   ],
+   "tokens": [
+    "The",
+    " quick",
+    " brown",
+    " fox"
+   ],
+   "top10": [
+    {
+     "id": 274,
+     "token": "es",
+     "prob": 0.228853
+    },
+    {
+     "id": 318,
+     "token": " is",
+     "prob": 0.054803
+    },
+    {
+     "id": 11,
+     "token": ",",
+     "prob": 0.027155
+    },
+    {
+     "id": 13,
+     "token": ".",
+     "prob": 0.024286
+    },
+    {
+     "id": 290,
+     "token": " and",
+     "prob": 0.019166
+    },
+    {
+     "id": 468,
+     "token": " has",
+     "prob": 0.018795
+    },
+    {
+     "id": 326,
+     "token": " that",
+     "prob": 0.015888
+    },
+    {
+     "id": 373,
+     "token": " was",
+     "prob": 0.015016
+    },
+    {
+     "id": 68,
+     "token": "e",
+     "prob": 0.01495
+    },
+    {
+     "id": 88,
+     "token": "y",
+     "prob": 0.010447
+    }
+   ],
+   "logit_lens": [
+    {
+     "layer": 0,
+     "top": [
+      {
+       "id": 274,
+       "token": "es",
+       "prob": 0.754821
+      },
+      {
+       "id": 21831,
+       "token": " fox",
+       "prob": 0.204189
+      },
+      {
+       "id": 13207,
+       "token": "hole",
+       "prob": 0.008797
+      }
+     ]
+    },
+    {
+     "layer": 1,
+     "top": [
+      {
+       "id": 274,
+       "token": "es",
+       "prob": 0.978369
+      },
+      {
+       "id": 88,
+       "token": "y",
+       "prob": 0.012381
+      },
+      {
+       "id": 8664,
+       "token": "bat",
+       "prob": 0.000991
+      }
+     ]
+    },
+    {
+     "layer": 2,
+     "top": [
+      {
+       "id": 274,
+       "token": "es",
+       "prob": 0.970042
+      },
+      {
+       "id": 88,
+       "token": "y",
+       "prob": 0.019326
+      },
+      {
+       "id": 13207,
+       "token": "hole",
+       "prob": 0.001721
+      }
+     ]
+    },
+    {
+     "layer": 3,
+     "top": [
+      {
+       "id": 274,
+       "token": "es",
+       "prob": 0.858457
+      },
+      {
+       "id": 88,
+       "token": "y",
+       "prob": 0.057687
+      },
+      {
+       "id": 13207,
+       "token": "hole",
+       "prob": 0.007874
+      }
+     ]
+    },
+    {
+     "layer": 4,
+     "top": [
+      {
+       "id": 274,
+       "token": "es",
+       "prob": 0.372122
+      },
+      {
+       "id": 88,
+       "token": "y",
+       "prob": 0.064143
+      },
+      {
+       "id": 13207,
+       "token": "hole",
+       "prob": 0.057855
+      }
+     ]
+    },
+    {
+     "layer": 5,
+     "top": [
+      {
+       "id": 274,
+       "token": "es",
+       "prob": 0.228853
+      },
+      {
+       "id": 318,
+       "token": " is",
+       "prob": 0.054803
+      },
+      {
+       "id": 11,
+       "token": ",",
+       "prob": 0.027155
+      }
+     ]
+    }
+   ],
+   "residual_norms": [
+    5.600372,
+    51.51368,
+    63.251423,
+    70.230758,
+    91.953832,
+    135.396886,
+    279.696772
+   ],
+   "attention_last_token": {
+    "layer0_head0": [
+     0.32323,
+     0.131381,
+     0.44567,
+     0.099719
+    ],
+    "layer5_head11": [
+     0.702991,
+     0.108775,
+     0.112079,
+     0.076155
+    ]
+   }
+  },
+  {
+   "prompt": "I am going to the",
+   "token_ids": [
+    40,
+    716,
+    1016,
+    284,
+    262
+   ],
+   "tokens": [
+    "I",
+    " am",
+    " going",
+    " to",
+    " the"
+   ],
+   "top10": [
+    {
+     "id": 1306,
+     "token": " next",
+     "prob": 0.038551
+    },
+    {
+     "id": 886,
+     "token": " end",
+     "prob": 0.026413
+    },
+    {
+     "id": 4436,
+     "token": " hospital",
+     "prob": 0.011389
+    },
+    {
+     "id": 966,
+     "token": " point",
+     "prob": 0.008346
+    },
+    {
+     "id": 1578,
+     "token": " United",
+     "prob": 0.008273
+    },
+    {
+     "id": 826,
+     "token": " right",
+     "prob": 0.007296
+    },
+    {
+     "id": 9003,
+     "token": " airport",
+     "prob": 0.007188
+    },
+    {
+     "id": 1353,
+     "token": " top",
+     "prob": 0.006904
+    },
+    {
+     "id": 9231,
+     "token": " polls",
+     "prob": 0.006869
+    },
+    {
+     "id": 976,
+     "token": " same",
+     "prob": 0.006674
+    }
+   ],
+   "logit_lens": [
+    {
+     "layer": 0,
+     "top": [
+      {
+       "id": 976,
+       "token": " same",
+       "prob": 0.76725
+      },
+      {
+       "id": 835,
+       "token": " way",
+       "prob": 0.033991
+      },
+      {
+       "id": 717,
+       "token": " first",
+       "prob": 0.017218
+      }
+     ]
+    },
+    {
+     "layer": 1,
+     "top": [
+      {
+       "id": 976,
+       "token": " same",
+       "prob": 0.80396
+      },
+      {
+       "id": 1306,
+       "token": " next",
+       "prob": 0.031905
+      },
+      {
+       "id": 826,
+       "token": " right",
+       "prob": 0.025032
+      }
+     ]
+    },
+    {
+     "layer": 2,
+     "top": [
+      {
+       "id": 976,
+       "token": " same",
+       "prob": 0.742623
+      },
+      {
+       "id": 6287,
+       "token": " extent",
+       "prob": 0.047244
+      },
+      {
+       "id": 826,
+       "token": " right",
+       "prob": 0.038571
+      }
+     ]
+    },
+    {
+     "layer": 3,
+     "top": [
+      {
+       "id": 976,
+       "token": " same",
+       "prob": 0.217988
+      },
+      {
+       "id": 886,
+       "token": " end",
+       "prob": 0.20265
+      },
+      {
+       "id": 6287,
+       "token": " extent",
+       "prob": 0.107936
+      }
+     ]
+    },
+    {
+     "layer": 4,
+     "top": [
+      {
+       "id": 1306,
+       "token": " next",
+       "prob": 0.10367
+      },
+      {
+       "id": 976,
+       "token": " same",
+       "prob": 0.055293
+      },
+      {
+       "id": 886,
+       "token": " end",
+       "prob": 0.044896
+      }
+     ]
+    },
+    {
+     "layer": 5,
+     "top": [
+      {
+       "id": 1306,
+       "token": " next",
+       "prob": 0.038551
+      },
+      {
+       "id": 886,
+       "token": " end",
+       "prob": 0.026413
+      },
+      {
+       "id": 4436,
+       "token": " hospital",
+       "prob": 0.011389
+      }
+     ]
+    }
+   ],
+   "residual_norms": [
+    5.165672,
+    44.055025,
+    48.650276,
+    54.705028,
+    78.77125,
+    156.996165,
+    323.607449
+   ],
+   "attention_last_token": {
+    "layer0_head0": [
+     0.526225,
+     0.201414,
+     0.166034,
+     0.050616,
+     0.055711
+    ],
+    "layer5_head11": [
+     0.801644,
+     0.042288,
+     0.036109,
+     0.093591,
+     0.026369
+    ]
+   }
+  },
+  {
+   "prompt": "Hello, my name is",
+   "token_ids": [
+    15496,
+    11,
+    616,
+    1438,
+    318
+   ],
+   "tokens": [
+    "Hello",
+    ",",
+    " my",
+    " name",
+    " is"
+   ],
+   "top10": [
+    {
+     "id": 449,
+     "token": " J",
+     "prob": 0.009973
+    },
+    {
+     "id": 1757,
+     "token": " John",
+     "prob": 0.008316
+    },
+    {
+     "id": 616,
+     "token": " my",
+     "prob": 0.008116
+    },
+    {
+     "id": 3271,
+     "token": " David",
+     "prob": 0.00729
+    },
+    {
+     "id": 309,
+     "token": " T",
+     "prob": 0.006772
+    },
+    {
+     "id": 337,
+     "token": " M",
+     "prob": 0.006341
+    },
+    {
+     "id": 3899,
+     "token": " Michael",
+     "prob": 0.006023
+    },
+    {
+     "id": 3700,
+     "token": " James",
+     "prob": 0.005855
+    },
+    {
+     "id": 262,
+     "token": " the",
+     "prob": 0.005793
+    },
+    {
+     "id": 360,
+     "token": " D",
+     "prob": 0.005462
+    }
+   ],
+   "logit_lens": [
+    {
+     "layer": 0,
+     "top": [
+      {
+       "id": 407,
+       "token": " not",
+       "prob": 0.808519
+      },
+      {
+       "id": 991,
+       "token": " still",
+       "prob": 0.048978
+      },
+      {
+       "id": 257,
+       "token": " a",
+       "prob": 0.031672
+      }
+     ]
+    },
+    {
+     "layer": 1,
+     "top": [
+      {
+       "id": 407,
+       "token": " not",
+       "prob": 0.799887
+      },
+      {
+       "id": 783,
+       "token": " now",
+       "prob": 0.045315
+      },
+      {
+       "id": 991,
+       "token": " still",
+       "prob": 0.031874
+      }
+     ]
+    },
+    {
+     "layer": 2,
+     "top": [
+      {
+       "id": 407,
+       "token": " not",
+       "prob": 0.726468
+      },
+      {
+       "id": 783,
+       "token": " now",
+       "prob": 0.050319
+      },
+      {
+       "id": 991,
+       "token": " still",
+       "prob": 0.034971
+      }
+     ]
+    },
+    {
+     "layer": 3,
+     "top": [
+      {
+       "id": 407,
+       "token": " not",
+       "prob": 0.337888
+      },
+      {
+       "id": 16293,
+       "token": " pronounced",
+       "prob": 0.075991
+      },
+      {
+       "id": 852,
+       "token": " being",
+       "prob": 0.061467
+      }
+     ]
+    },
+    {
+     "layer": 4,
+     "top": [
+      {
+       "id": 1757,
+       "token": " John",
+       "prob": 0.034
+      },
+      {
+       "id": 7651,
+       "token": " Eric",
+       "prob": 0.033163
+      },
+      {
+       "id": 4422,
+       "token": " Alex",
+       "prob": 0.032213
+      }
+     ]
+    },
+    {
+     "layer": 5,
+     "top": [
+      {
+       "id": 449,
+       "token": " J",
+       "prob": 0.009973
+      },
+      {
+       "id": 1757,
+       "token": " John",
+       "prob": 0.008316
+      },
+      {
+       "id": 616,
+       "token": " my",
+       "prob": 0.008116
+      }
+     ]
+    }
+   ],
+   "residual_norms": [
+    5.092138,
+    43.19331,
+    50.452459,
+    61.470064,
+    85.676906,
+    176.498463,
+    541.710081
+   ],
+   "attention_last_token": {
+    "layer0_head0": [
+     0.605501,
+     0.123465,
+     0.145541,
+     0.075541,
+     0.049951
+    ],
+    "layer5_head11": [
+     0.692477,
+     0.119036,
+     0.03081,
+     0.147956,
+     0.009721
+    ]
+   }
+  }
+ ]
+}
