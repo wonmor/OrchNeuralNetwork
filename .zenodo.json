@@ -1,0 +1,12 @@
+{
+  "title": "Orch Neural Network: an on-device GPT-2 visualiser for iOS",
+  "description": "An iOS app that runs DistilGPT2 from scratch in Swift on Accelerate and visualises every step of next-word prediction: tokens, embeddings, attention heads, MLP neurons, the logit lens across layers, output probabilities, and every weight matrix as a heatmap, framed as how keyboard suggestions work. Includes a numpy reference implementation and tests.",
+  "creators": [
+    { "name": "Seong, Wonmo (John)", "affiliation": "Orchestr Aerospace Inc." }
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "keywords": [ "language models", "transformers", "interpretability", "visualisation", "attention", "logit lens", "education", "iOS", "on-device inference" ],
+  "version": "1.0.0"
+}

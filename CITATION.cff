@@ -4,7 +4,7 @@ title: "Orch Neural Network: an on-device GPT-2 visualiser for iOS"
 authors:
   - family-names: Seong
     given-names: John
-    email: wonmor@yahoo.com
+    email: john@orchestrsim.com
 version: "1.0"
 date-released: "2026-10-04"
 url: "https://github.com/wonmor/OrchNeuralNetwork"
