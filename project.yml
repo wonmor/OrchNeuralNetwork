@@ -63,7 +63,7 @@ targets:
         UIRequiresFullScreen: false
         UIApplicationSupportsIndirectInputEvents: true
         UIUserInterfaceStyle: Dark
-        NSHumanReadableCopyright: "© 2026 John Seong"
+        NSHumanReadableCopyright: "© 2026 Wonmo (John) Seong"
   OrchNeuralNetworkTests:
     type: bundle.unit-test
     platform: iOS
