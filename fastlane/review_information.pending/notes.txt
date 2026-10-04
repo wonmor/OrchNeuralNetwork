@@ -1,0 +1,1 @@
+The app bundles a small open-source language model (DistilGPT2, Apache 2.0) and runs it fully offline. Text typed by the user is used only to compute next-word predictions on device. No sign-in is needed. Suggested test: tap the "I am…" sample button on the Predict tab, then open the Inside tab and tap the play button.

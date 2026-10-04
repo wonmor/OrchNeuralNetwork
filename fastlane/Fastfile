@@ -1,0 +1,73 @@
+default_platform(:ios)
+
+APP_ID   = "com.johnseong.OrchNeuralNetwork"
+USERNAME = "wonmor@yahoo.com"
+TEAM_ID  = "Z64KRUX3W3"
+
+def connect_login
+  Spaceship::ConnectAPI.login(USERNAME, nil, use_portal: false, use_tunes: true, tunes_team_id: TEAM_ID)
+end
+
+def edit_version
+  app = Spaceship::ConnectAPI::App.find(APP_ID)
+  UI.user_error!("App #{APP_ID} not found on App Store Connect") unless app
+  v = app.get_edit_app_store_version
+  UI.user_error!("No editable version") unless v
+  [app, v]
+end
+
+platform :ios do
+  desc "Set the age rating questionnaire to all-None (4+), including the 2025 questions fastlane's deliver does not know"
+  lane :age_rating do
+    connect_login
+    app = Spaceship::ConnectAPI::App.find(APP_ID)
+    info = app.fetch_edit_app_info || app.fetch_live_app_info
+    decl = info.fetch_age_rating_declaration
+    attrs = {
+      alcoholTobaccoOrDrugUseOrReferences: "NONE", contests: "NONE", gamblingSimulated: "NONE",
+      medicalOrTreatmentInformation: "NONE", profanityOrCrudeHumor: "NONE",
+      sexualContentGraphicAndNudity: "NONE", sexualContentOrNudity: "NONE",
+      horrorOrFearThemes: "NONE", matureOrSuggestiveThemes: "NONE",
+      violenceCartoonOrFantasy: "NONE", violenceRealistic: "NONE",
+      violenceRealisticProlongedGraphicOrSadistic: "NONE", gunsOrOtherWeapons: "NONE",
+      unrestrictedWebAccess: false, gambling: false, lootBox: false, advertising: false,
+      ageAssurance: false, healthOrWellnessTopics: false, messagingAndChat: false,
+      parentalControls: false, userGeneratedContent: false
+    }
+    Spaceship::ConnectAPI.patch_age_rating_declaration(age_rating_declaration_id: decl.id, attributes: attrs)
+    UI.success("Age rating declaration updated (#{decl.id})")
+  end
+
+  desc "Declare 'Data Not Collected' in the App Privacy section"
+  lane :privacy do
+    upload_app_privacy_details_to_app_store(
+      username: USERNAME, team_id: TEAM_ID, app_identifier: APP_ID,
+      json_path: "fastlane/app_data_usages.json"
+    )
+  end
+
+  desc "Show build processing and version state"
+  lane :status do
+    connect_login
+    app, v = edit_version
+    Spaceship::ConnectAPI::Build.all(app_id: app.id, sort: "-uploadedDate", limit: 3).each do |b|
+      UI.message("build #{b.version} for #{b.app_version}: #{b.processing_state}")
+    end
+    UI.message("version #{v.version_string}: #{v.app_store_state}")
+  end
+
+  desc "Submit version 1.0 for review using the latest processed build"
+  lane :submit do
+    deliver(
+      username: USERNAME, team_id: TEAM_ID, app_identifier: APP_ID, app_version: "1.0",
+      skip_binary_upload: true, skip_screenshots: true, skip_metadata: true,
+      submit_for_review: true, automatic_release: true, force: true,
+      run_precheck_before_submit: false, precheck_include_in_app_purchases: false,
+      submission_information: {
+        add_id_info_uses_idfa: false,
+        export_compliance_uses_encryption: false,
+        content_rights_contains_third_party_content: false
+      }
+    )
+  end
+end

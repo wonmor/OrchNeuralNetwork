@@ -1,0 +1,15 @@
+Ever wondered what your keyboard is doing when it suggests the next word? Orch Neural Network puts a real language model on your phone and lets you watch it think.
+
+Type anything. A six-layer GPT-2 runs on your device after every keystroke and shows:
+
+• Suggestions — the three most probable next words, exactly as a predictive keyboard would show them, with their real probabilities.
+• Signal through the network — six layers lighting up as the forward pass runs.
+• Attention — a heatmap of which earlier words each token is reading from, for any of the 72 attention heads, or averaged.
+• Neurons — all 3,072 MLP neurons in each layer, firing for your last word.
+• Logit lens — what the model would guess if it stopped after layer 0, 1, 2… and how that guess sharpens or changes as it goes deeper.
+• Weights — every one of the model's 76 weight matrices, rendered as a zoomable heatmap of the actual numbers learned in training.
+• Learn — a six-step walkthrough of one forward pass (tokenize, embed, attend, MLP, stack, softmax) using your own words as the example.
+
+Everything runs locally. No account, no network, no analytics. Nothing you type leaves the device.
+
+The model is DistilGPT2 (Hugging Face, Apache 2.0), a distilled version of OpenAI's GPT-2 trained on 2019 web text. Its suggestions are shown for learning purposes and can be wrong or dated.
