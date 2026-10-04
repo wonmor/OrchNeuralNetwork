@@ -30,3 +30,9 @@ each 64-byte aligned, HF Conv1D layout `[in, out]` preserved. Regenerate with
 
 ## Licence
 App code © 2026 John Seong. Model weights: DistilGPT2, Apache 2.0, https://huggingface.co/distilgpt2.
+
+## Licence and citation
+Code is MIT licensed (see LICENSE); model weights are DistilGPT2 under Apache 2.0. If you use or build on this work, please cite it: see `CITATION.cff` (GitHub's "Cite this repository" button).
+
+## Acknowledgement
+Implementation was carried out with AI assistance (Claude, Anthropic) under the author's direction; the author takes full responsibility for the design and content.

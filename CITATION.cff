@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Orch Neural Network: an on-device GPT-2 visualiser for iOS"
+authors:
+  - family-names: Seong
+    given-names: John
+    email: wonmor@yahoo.com
+version: "1.0"
+date-released: "2026-10-04"
+url: "https://github.com/wonmor/OrchNeuralNetwork"
+repository-code: "https://github.com/wonmor/OrchNeuralNetwork"
+license: MIT
+abstract: "An iOS app that runs DistilGPT2 from scratch in Swift on Accelerate and visualises every step of next-word prediction: tokens, embeddings, attention heads, MLP neurons, the logit lens across layers, output probabilities, and every weight matrix, framed as how keyboard suggestions work."
+keywords: [language models, interpretability, visualisation, education, iOS, on-device inference]
