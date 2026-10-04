@@ -35,4 +35,4 @@ App code © 2026 Wonmo (John) Seong. Model weights: DistilGPT2, Apache 2.0, http
 Code is MIT licensed (see LICENSE); model weights are DistilGPT2 under Apache 2.0. If you use or build on this work, please cite it: see `CITATION.cff` (GitHub's "Cite this repository" button).
 
 ## Acknowledgement
-Implementation was carried out with AI assistance (Claude, Anthropic) under the author's direction; the author takes full responsibility for the design and content.
+Conceived, designed and built by the author alone; AI-assisted software tools were used in preparing the code. The author takes full responsibility for the design and content.
