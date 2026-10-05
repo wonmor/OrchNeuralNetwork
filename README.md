@@ -1,5 +1,7 @@
 # Orch Neural Network
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23142805.svg)](https://doi.org/10.5281/zenodo.23142805)
+
 An iOS app that runs a real GPT-2 (DistilGPT2, 82M parameters) on device and visualises every step of
 next-word prediction: tokens, embeddings, attention heads, MLP neurons, the logit lens through all six
 layers, the final probabilities, and every weight matrix as a heatmap. Framed as "how your keyboard's

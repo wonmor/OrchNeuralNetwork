@@ -10,5 +10,10 @@ date-released: "2026-10-04"
 url: "https://github.com/wonmor/OrchNeuralNetwork"
 repository-code: "https://github.com/wonmor/OrchNeuralNetwork"
 license: MIT
+doi: 10.5281/zenodo.23142805
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23142804
+    description: "Concept DOI (all versions)"
 abstract: "An iOS app that runs DistilGPT2 from scratch in Swift on Accelerate and visualises every step of next-word prediction: tokens, embeddings, attention heads, MLP neurons, the logit lens across layers, output probabilities, and every weight matrix, framed as how keyboard suggestions work."
 keywords: [language models, interpretability, visualisation, education, iOS, on-device inference]
