@@ -2,3 +2,12 @@ build/
 xcuserdata/
 *.xcuserstate
 .DS_Store
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.fls
+paper/*.fdb_latexmk
+paper/build.log
+paper/arxiv/*.zip
+Tools/__pycache__/
+scripts/__pycache__/

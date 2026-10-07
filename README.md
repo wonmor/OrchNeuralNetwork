@@ -30,6 +30,18 @@ xcodebuild -project OrchNeuralNetwork.xcodeproj -scheme OrchNeuralNetwork \
 each 64-byte aligned, HF Conv1D layout `[in, out]` preserved. Regenerate with
 `~/.venvs/mflux/bin/python Tools/convert.py`.
 
+## Paper and benchmarks
+`paper/orch-neural-network.tex` is a technical report on the engine (verification against the numpy oracle,
+float16 fidelity, latency/memory, and an analytic cost model). Every number in it comes from
+`results/macros.tex`, which `scripts/make_figures.py` writes from `results/bench_*.json` and `results/fidelity.json`.
+
+- `scripts/run_benchmark.sh` runs `BenchmarkTests` on the simulator (default) or a device
+  (`scripts/run_benchmark.sh "id=<udid>" results/bench_iphone17.json`) and saves the JSON. The app also accepts
+  the launch argument `-benchmark`, which writes `Documents/benchmark.json` on a physical phone.
+- `scripts/fidelity.py` compares the float16 `.tsw` weights with the original float32 release over 30 prompts.
+- `scripts/make_figures.py` regenerates `figures/*.pdf` and `results/macros.tex`; then `cd paper && latexmk -pdf orch-neural-network.tex`.
+- `scripts/make_arxiv.sh` builds a flat arXiv submission folder in `paper/arxiv/`.
+
 ## Licence
 App code © 2026 Wonmo (John) Seong. Model weights: DistilGPT2, Apache 2.0, https://huggingface.co/distilgpt2.
 

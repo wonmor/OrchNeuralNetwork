@@ -13,15 +13,18 @@
 		299C82A135319CA115E40987 /* distilgpt2.tsw in Resources */ = {isa = PBXBuildFile; fileRef = 450EFD646D2863D1B4445D58 /* distilgpt2.tsw */; };
 		323E423C4586515E91740761 /* WeightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28DF5D0831958830E37F924 /* WeightsView.swift */; };
 		32D0AE6EDDC6D3AF323D06C0 /* ModelReferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBAE3ED2C564372EF30BC44 /* ModelReferenceTests.swift */; };
+		38F2A8DCBDE87F94E4E4B540 /* reference.json in Resources */ = {isa = PBXBuildFile; fileRef = 89C12F361B8D0F8A10757646 /* reference.json */; };
 		421D214D008546297B30B844 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99EFD0A5593E04205CAFA5D /* Assets.xcassets */; };
 		43DCB2D0765A60D94D6FFBBB /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 69ECF8094044D1AFCEBC3498 /* PrivacyInfo.xcprivacy */; };
 		5B852FDB05C213FD4F1DF8B2 /* vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = 285014FEFAC718CFEC9B95C8 /* vocab.json */; };
 		629D9569102542A5D40547E8 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CFEF347A5C6ED960C63751 /* LearnView.swift */; };
+		64E1F0CDA4FACB11BCC4370C /* Benchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15458C38DAE6BB2C3DBBA772 /* Benchmark.swift */; };
 		8CDBE3CF81A25D274BDDD563 /* reference.json in Resources */ = {isa = PBXBuildFile; fileRef = 89C12F361B8D0F8A10757646 /* reference.json */; };
 		8F82B70F92A796AC0C553B8C /* WeightFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059616D84E37E6D65A94D1BB /* WeightFile.swift */; };
 		941157658B04C0B05C28BD55 /* InsideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF48909C01E2C8B8AD8DBEF /* InsideView.swift */; };
 		B13348206DAE40DEE3601D97 /* GPT2Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62332BAD66DB17030DA109E /* GPT2Model.swift */; };
 		B32D2104B886053633A2E609 /* BPETokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A1F4B3BBFCCB3F3E5917E /* BPETokenizer.swift */; };
+		BD86250E7A6B3D5F84E6CADA /* BenchmarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD7CD89FB7F742A6B817D3C /* BenchmarkTests.swift */; };
 		C298CA13276B305E5A62EBD4 /* PredictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8C8593477A37EE74C9254 /* PredictView.swift */; };
 		CE399B5DC9C49420915EB611 /* InferenceEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB77360D49518F4D2045B0F /* InferenceEngine.swift */; };
 		DFE147ADA800006468B0007B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32FBE32B6163A7ED93E7FF1 /* ContentView.swift */; };
@@ -40,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		059616D84E37E6D65A94D1BB /* WeightFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightFile.swift; sourceTree = "<group>"; };
+		15458C38DAE6BB2C3DBBA772 /* Benchmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benchmark.swift; sourceTree = "<group>"; };
 		1ADA3629CDA98F4EFF69F81D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		285014FEFAC718CFEC9B95C8 /* vocab.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vocab.json; sourceTree = "<group>"; };
 		304A1F4B3BBFCCB3F3E5917E /* BPETokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPETokenizer.swift; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 		5FBAE3ED2C564372EF30BC44 /* ModelReferenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelReferenceTests.swift; sourceTree = "<group>"; };
 		69ECF8094044D1AFCEBC3498 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		6E4DE1E81123E557F978309E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		6FD7CD89FB7F742A6B817D3C /* BenchmarkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenchmarkTests.swift; sourceTree = "<group>"; };
 		72F8C8593477A37EE74C9254 /* PredictView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictView.swift; sourceTree = "<group>"; };
 		89C12F361B8D0F8A10757646 /* reference.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = reference.json; sourceTree = "<group>"; };
 		8D076A71C2CADBF735D3117E /* merges.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = merges.txt; sourceTree = "<group>"; };
@@ -110,6 +115,7 @@
 		5E8B82622AA0865D280F6762 /* OrchNeuralNetworkTests */ = {
 			isa = PBXGroup;
 			children = (
+				6FD7CD89FB7F742A6B817D3C /* BenchmarkTests.swift */,
 				5FBAE3ED2C564372EF30BC44 /* ModelReferenceTests.swift */,
 			);
 			path = OrchNeuralNetworkTests;
@@ -138,6 +144,7 @@
 		D92997317F9D0A49F6EC6205 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				15458C38DAE6BB2C3DBBA772 /* Benchmark.swift */,
 				304A1F4B3BBFCCB3F3E5917E /* BPETokenizer.swift */,
 				F62332BAD66DB17030DA109E /* GPT2Model.swift */,
 				3EB77360D49518F4D2045B0F /* InferenceEngine.swift */,
@@ -252,6 +259,7 @@
 				43DCB2D0765A60D94D6FFBBB /* PrivacyInfo.xcprivacy in Resources */,
 				299C82A135319CA115E40987 /* distilgpt2.tsw in Resources */,
 				278DCA33AC647B1042BF221A /* merges.txt in Resources */,
+				38F2A8DCBDE87F94E4E4B540 /* reference.json in Resources */,
 				5B852FDB05C213FD4F1DF8B2 /* vocab.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +273,7 @@
 			files = (
 				12E88F0056E245C8640CF0F6 /* AboutView.swift in Sources */,
 				B32D2104B886053633A2E609 /* BPETokenizer.swift in Sources */,
+				64E1F0CDA4FACB11BCC4370C /* Benchmark.swift in Sources */,
 				DFE147ADA800006468B0007B /* ContentView.swift in Sources */,
 				B13348206DAE40DEE3601D97 /* GPT2Model.swift in Sources */,
 				CE399B5DC9C49420915EB611 /* InferenceEngine.swift in Sources */,
@@ -282,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD86250E7A6B3D5F84E6CADA /* BenchmarkTests.swift in Sources */,
 				32D0AE6EDDC6D3AF323D06C0 /* ModelReferenceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,6 +35,8 @@ targets:
         buildPhase: resources
       - path: Model/merges.txt
         buildPhase: resources
+      - path: Model/reference.json
+        buildPhase: resources
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.johnseong.OrchNeuralNetwork
