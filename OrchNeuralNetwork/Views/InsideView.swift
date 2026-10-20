@@ -12,13 +12,14 @@ struct InsideView: View {
         @Bindable var engine = engine
         NavigationStack {
             ZStack {
-                Theme.gradient.ignoresSafeArea()
+                Theme.background
                 ScrollView {
                     VStack(spacing: 16) {
                         TextField("Type a sentence…", text: $engine.text, axis: .vertical)
                             .lineLimit(1...4)
                             .padding(12)
-                            .background(Color.black.opacity(0.25), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                            .background(Theme.sheet)
+                .overlay(Rectangle().stroke(Theme.ink, lineWidth: Theme.rule))
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.never)
                         if let trace = engine.trace {
@@ -27,7 +28,7 @@ struct InsideView: View {
                             neuronsCard(trace)
                         } else {
                             Text("Type above to run the network.")
-                                .foregroundStyle(.secondary).padding(.top, 40)
+                                .foregroundStyle(Theme.muted).padding(.top, 40)
                         }
                     }
                     .padding()
@@ -46,13 +47,13 @@ struct InsideView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
                 SectionTitle(text: "The 6 layers, in order",
-                             subtitle: "Tap a layer to inspect it · bar = size of the residual vector")
+                             subtitle: "Tap a layer to inspect it · bar = size of the residual vector", mark: .square, color: Theme.blue)
                 Button { Task { await replay() } } label: { Image(systemName: "play.circle.fill").font(.title2) }
                     .disabled(playing)
             }
             TokenStrip(tokens: trace.tokens, highlightLast: true)
             Text("Embedding · ‖x‖ = \(String(format: "%.1f", trace.embeddingNorm))")
-                .font(.caption).foregroundStyle(.secondary)
+                .font(.caption).foregroundStyle(Theme.muted)
             let maxNorm = trace.layers.map(\.residualNorm).max() ?? 1
             ForEach(trace.layers) { l in
                 Button { layer = l.id } label: {
@@ -60,8 +61,8 @@ struct InsideView: View {
                         Text("L\(l.id)").font(.system(.caption, design: .monospaced).weight(.bold)).frame(width: 26)
                         GeometryReader { geo in
                             ZStack(alignment: .leading) {
-                                Capsule().fill(Color.white.opacity(0.06))
-                                Capsule().fill(LinearGradient(colors: [Theme.accent, Theme.violet], startPoint: .leading, endPoint: .trailing))
+                                Rectangle().fill(Theme.ink.opacity(0.06))
+                                Rectangle().fill(l.id == layer ? Theme.red : Theme.blue)
                                     .frame(width: l.id <= playhead ? max(6, geo.size.width * CGFloat(l.residualNorm / maxNorm)) : 0)
                             }
                         }
@@ -70,22 +71,21 @@ struct InsideView: View {
                             if l.id <= playhead, let top = l.logitLens.first {
                                 Text("→ \(top.text.trimmingCharacters(in: .whitespaces))").font(.caption.weight(.semibold)).lineLimit(1)
                                 Text("\(top.prob.percent) · \(Int(l.mlpActiveFraction * 100))% neurons on")
-                                    .font(.caption2).foregroundStyle(.secondary)
+                                    .font(.caption2).foregroundStyle(Theme.muted)
                             } else {
-                                Text("…").font(.caption).foregroundStyle(.secondary)
+                                Text("…").font(.caption).foregroundStyle(Theme.muted)
                             }
                         }
                         .frame(width: 130, alignment: .trailing)
                     }
                     .padding(8)
-                    .background(layer == l.id ? Theme.accent.opacity(0.18) : Color.clear,
-                                in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                    .background(layer == l.id ? Theme.yellow.opacity(0.45) : Color.clear)
                     .opacity(l.id <= playhead ? 1 : 0.35)
                 }
                 .buttonStyle(.plain)
             }
             Text("The arrow shows what the model would predict if it stopped after that layer (the “logit lens”). Watch the guess sharpen or change as the signal goes deeper.")
-                .font(.caption).foregroundStyle(.secondary)
+                .font(.caption).foregroundStyle(Theme.muted)
         }
         .card()
         .animation(.easeOut(duration: 0.25), value: playhead)
@@ -112,15 +112,15 @@ struct InsideView: View {
         let lastRow = Array(matrix[(T - 1) * T ..< T * T])
         return VStack(alignment: .leading, spacing: 10) {
             SectionTitle(text: "Attention · layer \(l.id)",
-                         subtitle: "Each row is a token looking back at earlier tokens. Brighter = more weight.")
+                         subtitle: "Each row is a token looking back at earlier tokens. Darker = more weight.", mark: .circle, color: Theme.red)
             Picker("Head", selection: $head) {
                 Text("Average").tag(Int?.none)
                 ForEach(0 ..< 12, id: \.self) { h in Text("Head \(h)").tag(Int?.some(h)) }
             }
             .pickerStyle(.menu)
-            .tint(Theme.accent)
+            .tint(Theme.blue)
             Text("What the last token “\(trace.tokens.last ?? "")” is reading from:")
-                .font(.caption).foregroundStyle(.secondary)
+                .font(.caption).foregroundStyle(Theme.muted)
             TokenStrip(tokens: trace.tokens, weights: lastRow, highlightLast: true)
             AttentionHeatmap(matrix: matrix, tokens: trace.tokens)
                 .frame(height: min(340, CGFloat(T) * 22 + 60))
@@ -142,11 +142,11 @@ struct InsideView: View {
         let l = trace.layers[min(layer, trace.layers.count - 1)]
         return VStack(alignment: .leading, spacing: 10) {
             SectionTitle(text: "MLP neurons · layer \(l.id)",
-                         subtitle: "3,072 neurons for the last token · \(Int(l.mlpActiveFraction * 100))% fired")
+                         subtitle: "3,072 neurons for the last token · \(Int(l.mlpActiveFraction * 100))% fired", mark: .square, color: Theme.yellow)
             NeuronGrid(activations: l.mlpActivations)
                 .frame(height: 120)
             Text("After attention mixes information between tokens, each token passes through this block alone. These are the raw GELU outputs: most neurons stay quiet, a few fire hard.")
-                .font(.caption).foregroundStyle(.secondary)
+                .font(.caption).foregroundStyle(Theme.muted)
         }
         .card()
     }
@@ -175,8 +175,8 @@ struct AttentionHeatmap: View {
                         .interpolation(.none)
                         .resizable()
                         .frame(width: side, height: side)
-                        .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
-                        .overlay(RoundedRectangle(cornerRadius: 6, style: .continuous).stroke(Theme.cardStroke))
+                        .clipShape(Rectangle())
+                        .overlay(Rectangle().stroke(Theme.ink))
                 }
             }
         }
@@ -193,8 +193,8 @@ struct NeuronGrid: View {
             Image(uiImage: image)
                 .interpolation(.none)
                 .resizable()
-                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                .overlay(RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Theme.cardStroke))
+                .clipShape(Rectangle())
+                .overlay(Rectangle().stroke(Theme.ink))
         }
     }
 }

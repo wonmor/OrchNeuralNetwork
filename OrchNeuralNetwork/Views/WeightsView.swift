@@ -7,18 +7,18 @@ struct WeightsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Theme.gradient.ignoresSafeArea()
+                Theme.background
                 if let file = engine.model?.file {
                     List {
                         Section {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("\(file.totalParameters.grouped) parameters").font(.title3.weight(.semibold))
+                                Text("\(file.totalParameters.grouped) parameters").font(Theme.display(22, relativeTo: .title3))
                                 Text("\(file.tensors.count) tensors · stored as 16-bit floats · \(file.header.model)")
-                                    .font(.caption).foregroundStyle(.secondary)
+                                    .font(.caption).foregroundStyle(Theme.muted)
                                 Text("These numbers were fixed during training. Running the model only reads them.")
-                                    .font(.caption).foregroundStyle(.secondary)
+                                    .font(.caption).foregroundStyle(Theme.muted)
                             }
-                            .listRowBackground(Theme.card)
+                            .listRowBackground(Theme.sheet)
                         }
                         ForEach(groups(file.tensors), id: \.title) { g in
                             Section(g.title) {
@@ -27,22 +27,24 @@ struct WeightsView: View {
                                         HStack {
                                             VStack(alignment: .leading, spacing: 2) {
                                                 Text(Self.pretty(t.name)).font(.body)
-                                                Text(t.shapeDescription).font(.caption.monospaced()).foregroundStyle(.secondary)
+                                                Text(t.shapeDescription).font(.caption.monospaced()).foregroundStyle(Theme.muted)
                                             }
                                             Spacer()
-                                            Text(t.count.grouped).font(.caption.monospaced()).foregroundStyle(.secondary)
+                                            Text(t.count.grouped).font(.caption.monospaced()).foregroundStyle(Theme.muted)
                                         }
                                     }
-                                    .listRowBackground(Theme.card)
+                                    .listRowBackground(Theme.sheet)
                                 }
                             }
                         }
                     }
+                    .listStyle(.plain)
                     .scrollContentBackground(.hidden)
                     .navigationDestination(for: TensorInfo.self) { TensorDetailView(tensor: $0, file: file) }
                 }
             }
             .navigationTitle("Weights")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 
@@ -93,13 +95,13 @@ struct TensorDetailView: View {
 
     var body: some View {
         ZStack {
-            Theme.gradient.ignoresSafeArea()
+            Theme.background
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(WeightsView.pretty(tensor.name)).font(.title3.weight(.semibold))
                         Text("\(tensor.name) · \(tensor.shapeDescription) · \(tensor.count.grouped) values")
-                            .font(.caption.monospaced()).foregroundStyle(.secondary)
+                            .font(.caption.monospaced()).foregroundStyle(Theme.muted)
                     }
                     .card()
                     if let image {
@@ -109,7 +111,7 @@ struct TensorDetailView: View {
                                 .resizable()
                                 .aspectRatio(CGFloat(image.size.width / image.size.height), contentMode: .fit)
                                 .frame(width: 360 * zoom)
-                                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                                .clipShape(Rectangle())
                         }
                         .frame(maxWidth: .infinity)
                         .frame(height: 380)
@@ -118,8 +120,8 @@ struct TensorDetailView: View {
                             Text("Zoom").font(.caption)
                             Slider(value: $zoom, in: 1 ... 8)
                         }
-                        Text("Blue = negative, orange = positive, dark = near zero. The grid is a sample of the full matrix; every cell is one real weight.")
-                            .font(.caption).foregroundStyle(.secondary)
+                        Text("Blue = negative, red = positive, pale = near zero. The grid is a sample of the full matrix; every cell is one real weight.")
+                            .font(.caption).foregroundStyle(Theme.muted)
                     } else {
                         ProgressView().frame(maxWidth: .infinity, minHeight: 200)
                     }
@@ -139,7 +141,7 @@ struct TensorDetailView: View {
     }
 
     private func stat(_ label: String, _ v: Float) -> some View {
-        HStack { Text(label).foregroundStyle(.secondary); Spacer(); Text(String(format: "%.4f", v)).monospaced() }
+        HStack { Text(label).foregroundStyle(Theme.muted); Spacer(); Text(String(format: "%.4f", v)).monospaced() }
             .font(.caption)
     }
 

@@ -7,7 +7,7 @@ struct LearnView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Theme.gradient.ignoresSafeArea()
+                Theme.background
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
                         intro
@@ -15,7 +15,7 @@ struct LearnView: View {
                             step1(trace); step2(trace); step3(trace); step4(trace); step5(trace); step6(trace)
                         } else {
                             Text("Type something in the Predict tab and come back: every step below will use your words.")
-                                .font(.footnote).foregroundStyle(.secondary).card()
+                                .font(.footnote).foregroundStyle(Theme.muted).card()
                         }
                         outro
                     }
@@ -23,27 +23,34 @@ struct LearnView: View {
                 }
             }
             .navigationTitle("How it works")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 
     private var intro: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("A language model is a next-word predictor").font(.title3.weight(.semibold))
+            Text("A language model is a next-word predictor").font(Theme.display(22, relativeTo: .title3))
             Text("Your phone keyboard, ChatGPT and this app all do the same core thing: turn text into numbers, push the numbers through a stack of layers, and read off a probability for every possible next token. Then they do it again for the next word. Here is one pass, step by step, on your own text.")
-                .font(.footnote).foregroundStyle(.secondary)
+                .font(.footnote).foregroundStyle(Theme.muted)
         }
-        .card()
+        .card(Theme.yellow)
     }
 
     private func step(_ n: Int, _ title: String, _ body: String, @ViewBuilder content: () -> some View) -> some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline, spacing: 8) {
-                Text("\(n)").font(.caption.weight(.bold)).frame(width: 22, height: 22)
-                    .background(Theme.accent, in: Circle()).foregroundStyle(.black)
-                Text(title).font(.headline)
+                let mark: BauhausMark = [.circle, .square, .triangle][(n - 1) % 3]
+                let fill: Color = [Theme.red, Theme.blue, Theme.yellow][(n - 1) % 3]
+                ZStack {
+                    MarkShape(mark: mark, color: fill, size: 28)
+                    Text("\(n)").font(Theme.display(13, relativeTo: .caption))
+                        .foregroundStyle(fill == Theme.yellow ? Theme.ink : .white)
+                        .offset(x: mark == .triangle ? -3 : 0)
+                }
+                Text(title.uppercased()).font(Theme.display(15, relativeTo: .headline)).tracking(0.5)
             }
             content()
-            Text(body).font(.footnote).foregroundStyle(.secondary)
+            Text(body).font(.footnote).foregroundStyle(Theme.muted)
         }
         .card()
     }
@@ -61,7 +68,7 @@ struct LearnView: View {
             HStack(alignment: .center, spacing: 1) {
                 ForEach(Array(t.embeddingPreview.enumerated()), id: \.offset) { _, v in
                     Rectangle()
-                        .fill(v >= 0 ? Theme.amber : Theme.accent)
+                        .fill(v >= 0 ? Theme.yellow : Theme.blue)
                         .frame(height: CGFloat(min(abs(v) * 60, 40)) + 1)
                         .frame(maxWidth: .infinity)
                 }
@@ -100,7 +107,7 @@ struct LearnView: View {
                             TokenChip(text: p.text, weight: p.prob)
                         }
                         Spacer()
-                        Text(l.logitLens.first?.prob.percent ?? "").font(.caption.monospaced()).foregroundStyle(.secondary)
+                        Text(l.logitLens.first?.prob.percent ?? "").font(.caption.monospaced()).foregroundStyle(Theme.muted)
                     }
                 }
             }
@@ -116,9 +123,9 @@ struct LearnView: View {
 
     private var outro: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Why can't I see every weight at once?").font(.headline)
+            SectionTitle(text: "Why can't I see every weight at once?", mark: .circle, color: Theme.blue)
             Text("This small model has \(engine.parameterCount.grouped) weights. A 4K screen has about 8 million pixels. Frontier models have hundreds of billions of weights, so any picture of a network is a sample. The Weights tab lets you page through the real matrices, one at a time.")
-                .font(.footnote).foregroundStyle(.secondary)
+                .font(.footnote).foregroundStyle(Theme.muted)
         }
         .card()
     }

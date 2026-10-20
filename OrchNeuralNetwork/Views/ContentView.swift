@@ -13,9 +13,9 @@ struct ContentView: View {
             WeightsView()
                 .tabItem { Label("Weights", systemImage: "square.grid.3x3.fill") }.tag(2)
             LearnView()
-                .tabItem { Label("Learn", systemImage: "book") }.tag(3)
+                .tabItem { Label("Steps", systemImage: "list.number") }.tag(3)
         }
-        .tint(Theme.accent)
+        .tint(Theme.red)
         .overlay { loadingOverlay }
         .onAppear { engine.load() }
     }
@@ -26,22 +26,22 @@ struct ContentView: View {
             EmptyView()
         case .loading:
             ZStack {
-                Theme.gradient.ignoresSafeArea()
+                Theme.background
                 VStack(spacing: 14) {
                     ProgressView().controlSize(.large)
-                    Text("Loading 82 million weights…").font(.headline)
+                    Text("Loading 82 million weights…").font(Theme.display(18, relativeTo: .headline))
                     Text("Everything runs on this device. Nothing leaves it.")
-                        .font(.footnote).foregroundStyle(.secondary)
+                        .font(.footnote).foregroundStyle(Theme.muted)
                 }
             }
             .transition(.opacity)
         case .failed(let message):
             ZStack {
-                Theme.gradient.ignoresSafeArea()
+                Theme.background
                 VStack(spacing: 10) {
                     Image(systemName: "exclamationmark.triangle").font(.largeTitle)
                     Text("Couldn't load the model").font(.headline)
-                    Text(message).font(.footnote).foregroundStyle(.secondary).multilineTextAlignment(.center)
+                    Text(message).font(.footnote).foregroundStyle(Theme.muted).multilineTextAlignment(.center)
                 }
                 .padding()
             }

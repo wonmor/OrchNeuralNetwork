@@ -1,55 +1,119 @@
 import SwiftUI
 import UIKit
 
+/// Bauhaus palette: three primaries and black on warm paper. Shapes carry meaning:
+/// circle = token / neuron, square = layer / matrix, triangle = prediction.
 enum Theme {
-    static let background = Color(red: 0.031, green: 0.055, blue: 0.145)
-    static let backgroundTop = Color(red: 0.07, green: 0.09, blue: 0.24)
-    static let accent = Color(red: 0.38, green: 0.69, blue: 1.0)
-    static let violet = Color(red: 0.64, green: 0.47, blue: 1.0)
-    static let mint = Color(red: 0.42, green: 0.93, blue: 0.78)
-    static let amber = Color(red: 1.0, green: 0.72, blue: 0.30)
-    static let card = Color.white.opacity(0.07)
-    static let cardStroke = Color.white.opacity(0.10)
+    static let paper = Color(red: 0.949, green: 0.925, blue: 0.878)
+    static let sheet = Color(red: 0.988, green: 0.976, blue: 0.949)
+    static let ink = Color(red: 0.078, green: 0.078, blue: 0.078)
+    static let red = Color(red: 0.835, green: 0.169, blue: 0.118)
+    static let yellow = Color(red: 0.957, green: 0.745, blue: 0.0)
+    static let blue = Color(red: 0.090, green: 0.251, blue: 0.627)
+    static let muted = Color(red: 0.078, green: 0.078, blue: 0.078).opacity(0.62)
+    static let rule: CGFloat = 2
 
-    static var gradient: LinearGradient {
-        LinearGradient(colors: [backgroundTop, background], startPoint: .top, endPoint: .bottom)
+    static var background: some View { paper.ignoresSafeArea() }
+
+    static func display(_ size: CGFloat, relativeTo style: Font.TextStyle = .title) -> Font {
+        .custom("Futura-Bold", size: size, relativeTo: style)
     }
 
-    /// Sequential colour ramp used for attention and activations: navy → blue → cyan → white.
+    /// Sequential ramp for attention and activations: paper → yellow → red → black.
+    static func heatRGB(_ v: Float) -> (Float, Float, Float) {
+        let t = min(max(v, 0), 1)
+        let stops: [(Float, Float, Float)] = [(0.949, 0.925, 0.878), (0.957, 0.745, 0.0), (0.835, 0.169, 0.118), (0.078, 0.078, 0.078)]
+        let x = t * 3, i = min(Int(x), 2), k = x - Float(i)
+        let a = stops[i], b = stops[i + 1]
+        return (a.0 + (b.0 - a.0) * k, a.1 + (b.1 - a.1) * k, a.2 + (b.2 - a.2) * k)
+    }
+
     static func heat(_ v: Float) -> Color {
-        let t = Double(min(max(v, 0), 1))
-        if t < 0.5 {
-            let k = t / 0.5
-            return Color(red: 0.06 + 0.22 * k, green: 0.08 + 0.52 * k, blue: 0.25 + 0.75 * k)
-        } else {
-            let k = (t - 0.5) / 0.5
-            return Color(red: 0.28 + 0.72 * k, green: 0.60 + 0.40 * k, blue: 1.0)
+        let c = heatRGB(v)
+        return Color(red: Double(c.0), green: Double(c.1), blue: Double(c.2))
+    }
+
+    /// Applies Futura to navigation titles so every screen carries the same typographic voice.
+    static func configureAppearance() {
+        let nav = UINavigationBarAppearance()
+        nav.configureWithOpaqueBackground()
+        nav.backgroundColor = UIColor(paper)
+        nav.shadowColor = UIColor(ink)
+        let ink = UIColor(Self.ink)
+        if let f = UIFont(name: "Futura-Bold", size: 17) { nav.titleTextAttributes = [.font: f, .foregroundColor: ink] }
+        if let f = UIFont(name: "Futura-Bold", size: 32) { nav.largeTitleTextAttributes = [.font: f, .foregroundColor: ink] }
+        UINavigationBar.appearance().standardAppearance = nav
+        UINavigationBar.appearance().scrollEdgeAppearance = nav
+        UINavigationBar.appearance().compactAppearance = nav
+    }
+}
+
+enum BauhausMark { case circle, square, triangle }
+
+struct MarkShape: View {
+    let mark: BauhausMark
+    var color: Color
+    var size: CGFloat = 12
+    var body: some View {
+        switch mark {
+        case .circle: Circle().fill(color).frame(width: size, height: size)
+        case .square: Rectangle().fill(color).frame(width: size, height: size)
+        case .triangle: Triangle().fill(color).frame(width: size, height: size)
         }
     }
 }
 
+struct Triangle: Shape {
+    func path(in r: CGRect) -> Path {
+        var p = Path()
+        p.move(to: CGPoint(x: r.minX, y: r.minY)); p.addLine(to: CGPoint(x: r.maxX, y: r.midY)); p.addLine(to: CGPoint(x: r.minX, y: r.maxY))
+        p.closeSubpath(); return p
+    }
+}
+
+/// Flat sheet with a hard black rule and square corners, no shadows or blur.
 struct CardModifier: ViewModifier {
+    var band: Color?
     func body(content: Content) -> some View {
         content
             .padding(14)
-            .background(Theme.card, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
-            .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).stroke(Theme.cardStroke, lineWidth: 1))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Theme.sheet)
+            .overlay(alignment: .top) { if let band { Rectangle().fill(band).frame(height: 6) } }
+            .overlay(Rectangle().stroke(Theme.ink, lineWidth: Theme.rule))
     }
 }
 
 extension View {
-    func card() -> some View { modifier(CardModifier()) }
+    func card(_ band: Color? = nil) -> some View { modifier(CardModifier(band: band)) }
 }
 
 struct SectionTitle: View {
     let text: String
     var subtitle: String? = nil
+    var mark: BauhausMark = .square
+    var color: Color = Theme.red
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text(text).font(.headline)
-            if let subtitle { Text(subtitle).font(.caption).foregroundStyle(.secondary) }
+        VStack(alignment: .leading, spacing: 3) {
+            HStack(spacing: 8) {
+                MarkShape(mark: mark, color: color)
+                Text(text.uppercased()).font(Theme.display(15, relativeTo: .headline)).tracking(0.6)
+            }
+            if let subtitle { Text(subtitle).font(.caption).foregroundStyle(Theme.muted) }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+/// Primary-colour button used for chips and suggestions.
+struct BlockButtonStyle: ButtonStyle {
+    var fill: Color = Theme.sheet
+    var foreground: Color = Theme.ink
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundStyle(foreground)
+            .background(configuration.isPressed ? Theme.yellow : fill)
+            .overlay(Rectangle().stroke(Theme.ink, lineWidth: Theme.rule))
     }
 }
 
@@ -75,13 +139,14 @@ enum HeatmapImage {
             var r: Float, g: Float, b: Float
             switch mode {
             case .sequential:
-                let t = min(max(v, 0), 1)
-                if t < 0.5 { let k = t / 0.5; r = 0.06 + 0.22 * k; g = 0.08 + 0.52 * k; b = 0.25 + 0.75 * k }
-                else { let k = (t - 0.5) / 0.5; r = 0.28 + 0.72 * k; g = 0.60 + 0.40 * k; b = 1 }
+                (r, g, b) = Theme.heatRGB(v)
             case .diverging:
+                // blue (negative) ← paper → red (positive)
                 let t = min(max(v, -1), 1)
-                if t < 0 { let k = -t; r = 0.05 + 0.10 * k; g = 0.07 + 0.45 * k; b = 0.15 + 0.85 * k }
-                else { let k = t; r = 0.05 + 0.95 * k; g = 0.07 + 0.55 * k; b = 0.15 + 0.10 * k }
+                let p: (Float, Float, Float) = (0.949, 0.925, 0.878)
+                let e: (Float, Float, Float) = t < 0 ? (0.090, 0.251, 0.627) : (0.835, 0.169, 0.118)
+                let k = abs(t)
+                r = p.0 + (e.0 - p.0) * k; g = p.1 + (e.1 - p.1) * k; b = p.2 + (e.2 - p.2) * k
             }
             pixels[i * 4] = UInt8(max(0, min(255, r * 255)))
             pixels[i * 4 + 1] = UInt8(max(0, min(255, g * 255)))
@@ -108,11 +173,9 @@ struct TokenChip: View {
             .font(.system(.footnote, design: .monospaced))
             .padding(.horizontal, 8)
             .padding(.vertical, 5)
-            .background(weight > 0.02 ? Theme.heat(weight).opacity(0.85) : Color.white.opacity(0.08),
-                        in: RoundedRectangle(cornerRadius: 7, style: .continuous))
-            .overlay(RoundedRectangle(cornerRadius: 7, style: .continuous)
-                .stroke(highlighted ? Theme.amber : Color.white.opacity(0.12), lineWidth: highlighted ? 2 : 1))
-            .foregroundStyle(weight > 0.6 ? Color.black : Color.white)
+            .background(weight > 0.02 ? Theme.heat(weight) : Theme.sheet)
+            .overlay(Rectangle().stroke(highlighted ? Theme.red : Theme.ink, lineWidth: highlighted ? 3 : 1.5))
+            .foregroundStyle(weight > 0.55 ? Color.white : Theme.ink)
     }
 
     private var display: String {
@@ -151,14 +214,14 @@ struct ProbabilityBars: View {
                     TokenChip(text: item.text).frame(width: 96, alignment: .leading)
                     GeometryReader { geo in
                         ZStack(alignment: .leading) {
-                            Capsule().fill(Color.white.opacity(0.06))
-                            Capsule().fill(LinearGradient(colors: [Theme.accent, Theme.violet], startPoint: .leading, endPoint: .trailing))
+                            Rectangle().fill(Theme.ink.opacity(0.06))
+                            Rectangle().fill(item.id == shown.first?.id ? Theme.red : Theme.blue)
                                 .frame(width: max(4, geo.size.width * CGFloat(item.prob / maxP)))
                         }
                     }
                     .frame(height: 12)
                     Text(item.prob.percent).font(.system(.caption, design: .monospaced)).frame(width: 52, alignment: .trailing)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Theme.muted)
                 }
                 .animation(.easeOut(duration: 0.3), value: item.prob)
             }
