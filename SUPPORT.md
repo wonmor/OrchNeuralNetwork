@@ -2,7 +2,7 @@
 
 Orch Neural Network runs a real GPT-2 language model on your iPhone or iPad and visualises every step of next-word prediction.
 
-**Questions, bugs, or feature requests:** email wonmor@yahoo.com, or open an issue on this repository.
+**Questions, bugs, or feature requests:** email john@orchestrsim.com, or open an issue on this repository.
 
 **Frequently asked**
 
