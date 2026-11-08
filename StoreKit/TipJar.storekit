@@ -1,0 +1,89 @@
+{
+  "appPolicies": {
+    "eula": "",
+    "policies": [
+      {
+        "locale": "en_US",
+        "policyText": "",
+        "policyURL": ""
+      }
+    ]
+  },
+  "identifier": "5E2B9A41",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "1.99",
+      "familyShareable": false,
+      "internalID": "B7E1C0000",
+      "localizations": [
+        {
+          "description": "A small thank-you. Unlocks nothing.",
+          "displayName": "Small tip",
+          "locale": "en_GB"
+        },
+        {
+          "description": "A small thank-you. Unlocks nothing.",
+          "displayName": "Small tip",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "orchnn.tip.small",
+      "referenceName": "Small tip (orchnn.tip.small)",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "4.99",
+      "familyShareable": false,
+      "internalID": "B7E1C0010",
+      "localizations": [
+        {
+          "description": "A medium thank-you. Unlocks nothing.",
+          "displayName": "Medium tip",
+          "locale": "en_GB"
+        },
+        {
+          "description": "A medium thank-you. Unlocks nothing.",
+          "displayName": "Medium tip",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "orchnn.tip.medium",
+      "referenceName": "Medium tip (orchnn.tip.medium)",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "9.99",
+      "familyShareable": false,
+      "internalID": "B7E1C0020",
+      "localizations": [
+        {
+          "description": "A large thank-you. Unlocks nothing.",
+          "displayName": "Large tip",
+          "locale": "en_GB"
+        },
+        {
+          "description": "A large thank-you. Unlocks nothing.",
+          "displayName": "Large tip",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "orchnn.tip.large",
+      "referenceName": "Large tip (orchnn.tip.large)",
+      "type": "Consumable"
+    }
+  ],
+  "settings": {
+    "_applicationInternalID": "6819051390",
+    "_developerTeamID": "Z64KRUX3W3",
+    "_failTransactionsEnabled": false,
+    "_locale": "en_US",
+    "_storefront": "USA",
+    "_storeKitErrors": []
+  },
+  "subscriptionGroups": [],
+  "version": {
+    "major": 4,
+    "minor": 0
+  }
+}

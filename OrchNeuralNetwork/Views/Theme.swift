@@ -1,5 +1,4 @@
 import SwiftUI
-import UIKit
 
 /// Bauhaus palette: three primaries and black on warm paper. Shapes carry meaning:
 /// circle = token / neuron, square = layer / matrix, triangle = prediction.
@@ -35,6 +34,7 @@ enum Theme {
 
     /// Applies Futura to navigation titles so every screen carries the same typographic voice.
     static func configureAppearance() {
+        #if os(iOS)
         let nav = UINavigationBarAppearance()
         nav.configureWithOpaqueBackground()
         nav.backgroundColor = UIColor(paper)
@@ -45,29 +45,30 @@ enum Theme {
         UINavigationBar.appearance().standardAppearance = nav
         UINavigationBar.appearance().scrollEdgeAppearance = nav
         UINavigationBar.appearance().compactAppearance = nav
+        #endif
     }
 }
 
 enum BauhausMark { case circle, square, triangle }
 
+/// Section marker: a coloured SF Symbol glyph (token, layer or prediction), never a bare geometric shape.
 struct MarkShape: View {
     let mark: BauhausMark
     var color: Color
     var size: CGFloat = 12
     var body: some View {
-        switch mark {
-        case .circle: Circle().fill(color).frame(width: size, height: size)
-        case .square: Rectangle().fill(color).frame(width: size, height: size)
-        case .triangle: Triangle().fill(color).frame(width: size, height: size)
-        }
+        Image(systemName: Self.glyph(mark))
+            .font(.system(size: size * 1.15, weight: .bold))
+            .foregroundStyle(color)
+            .frame(width: size * 1.4, height: size * 1.4)
+            .accessibilityHidden(true)
     }
-}
-
-struct Triangle: Shape {
-    func path(in r: CGRect) -> Path {
-        var p = Path()
-        p.move(to: CGPoint(x: r.minX, y: r.minY)); p.addLine(to: CGPoint(x: r.maxX, y: r.midY)); p.addLine(to: CGPoint(x: r.minX, y: r.maxY))
-        p.closeSubpath(); return p
+    static func glyph(_ m: BauhausMark) -> String {
+        switch m {
+        case .circle: return "textformat.abc"          // tokens and neurons
+        case .square: return "square.stack.3d.up.fill" // layers and matrices
+        case .triangle: return "sparkles"              // predictions
+        }
     }
 }
 
@@ -121,7 +122,7 @@ struct BlockButtonStyle: ButtonStyle {
 enum HeatmapImage {
     enum Mode { case sequential, diverging }
 
-    static func make(values: [Float], rows: Int, cols: Int, mode: Mode, scale: Float? = nil) -> UIImage? {
+    static func make(values: [Float], rows: Int, cols: Int, mode: Mode, scale: Float? = nil) -> PlatformImage? {
         guard rows > 0, cols > 0, values.count >= rows * cols else { return nil }
         var pixels = [UInt8](repeating: 255, count: rows * cols * 4)
         let s: Float
@@ -159,7 +160,7 @@ enum HeatmapImage {
                                bitmapInfo: CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue),
                                provider: provider, decode: nil, shouldInterpolate: false, intent: .defaultIntent)
         else { return nil }
-        return UIImage(cgImage: cg)
+        return PlatformImage(cgImageCompat: cg)
     }
 }
 

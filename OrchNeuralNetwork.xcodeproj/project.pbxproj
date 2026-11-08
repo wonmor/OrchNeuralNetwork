@@ -7,28 +7,58 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06C23F1CB5126BABA88274C0 /* GPT2Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62332BAD66DB17030DA109E /* GPT2Model.swift */; };
+		0B47E094AF6EC6F02AFDCD41 /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEEFF02E6E22AB6BDAEBAFE /* TipJarView.swift */; };
+		0CEF8A4C86389E9C8EB3348C /* Benchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15458C38DAE6BB2C3DBBA772 /* Benchmark.swift */; };
+		0E1D30474E5D8777AE1DE101 /* vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = 285014FEFAC718CFEC9B95C8 /* vocab.json */; };
 		12E88F0056E245C8640CF0F6 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA3629CDA98F4EFF69F81D /* AboutView.swift */; };
+		144E590C76A3E11D16267E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99EFD0A5593E04205CAFA5D /* Assets.xcassets */; };
+		18660C75BE330E16F0EAA68A /* TipJarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6441257C5303AA68A51664D0 /* TipJarTests.swift */; };
+		1EE031C8E43A9A2532EAB993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32FBE32B6163A7ED93E7FF1 /* ContentView.swift */; };
 		277D3968BD5254B68343D1DE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DE1E81123E557F978309E /* Theme.swift */; };
 		278DCA33AC647B1042BF221A /* merges.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8D076A71C2CADBF735D3117E /* merges.txt */; };
 		299C82A135319CA115E40987 /* distilgpt2.tsw in Resources */ = {isa = PBXBuildFile; fileRef = 450EFD646D2863D1B4445D58 /* distilgpt2.tsw */; };
+		2AA2B58650DF7167EFFF6100 /* merges.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8D076A71C2CADBF735D3117E /* merges.txt */; };
+		2C7F6B817CD5D239AB201AAD /* PredictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8C8593477A37EE74C9254 /* PredictView.swift */; };
+		2E831974ED8FA455C25DDD30 /* MacContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E859FFB1C9EC25F5534E9E2 /* MacContentView.swift */; };
+		2E8CC0DCBEA5C985FE58BB6E /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CFEF347A5C6ED960C63751 /* LearnView.swift */; };
+		2F2715192ECD267512418AF4 /* BPETokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A1F4B3BBFCCB3F3E5917E /* BPETokenizer.swift */; };
+		3134DB02C2B038245557798A /* OrchNeuralNetworkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549EAC61E840586EC16F7B52 /* OrchNeuralNetworkApp.swift */; };
 		323E423C4586515E91740761 /* WeightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28DF5D0831958830E37F924 /* WeightsView.swift */; };
 		32D0AE6EDDC6D3AF323D06C0 /* ModelReferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBAE3ED2C564372EF30BC44 /* ModelReferenceTests.swift */; };
 		38F2A8DCBDE87F94E4E4B540 /* reference.json in Resources */ = {isa = PBXBuildFile; fileRef = 89C12F361B8D0F8A10757646 /* reference.json */; };
 		421D214D008546297B30B844 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99EFD0A5593E04205CAFA5D /* Assets.xcassets */; };
 		43DCB2D0765A60D94D6FFBBB /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 69ECF8094044D1AFCEBC3498 /* PrivacyInfo.xcprivacy */; };
+		456DA01538A018AAFDCC391E /* MacContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E859FFB1C9EC25F5534E9E2 /* MacContentView.swift */; };
+		4F830A2E8FDB3372254DF499 /* WeightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28DF5D0831958830E37F924 /* WeightsView.swift */; };
+		57153322C69A328A5E8522BF /* distilgpt2.tsw in Resources */ = {isa = PBXBuildFile; fileRef = 450EFD646D2863D1B4445D58 /* distilgpt2.tsw */; };
 		5B852FDB05C213FD4F1DF8B2 /* vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = 285014FEFAC718CFEC9B95C8 /* vocab.json */; };
 		629D9569102542A5D40547E8 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CFEF347A5C6ED960C63751 /* LearnView.swift */; };
 		64E1F0CDA4FACB11BCC4370C /* Benchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15458C38DAE6BB2C3DBBA772 /* Benchmark.swift */; };
+		67E75F3D3009196272AF21F9 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA3629CDA98F4EFF69F81D /* AboutView.swift */; };
+		6FC6E44D354FD6F8DCA97CF6 /* MacAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E44AA84BF83023F28B84321C /* MacAssets.xcassets */; };
+		734D746EA58E22BC208859F1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DE1E81123E557F978309E /* Theme.swift */; };
+		807A2B7706970FE2B8CB7B50 /* TipJar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B0E6A90F610E121AE4CF75 /* TipJar.swift */; };
+		85A44703234825957F141B1D /* reference.json in Resources */ = {isa = PBXBuildFile; fileRef = 89C12F361B8D0F8A10757646 /* reference.json */; };
+		8AD172231199B32D476EE2A0 /* TipJar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B0E6A90F610E121AE4CF75 /* TipJar.swift */; };
 		8CDBE3CF81A25D274BDDD563 /* reference.json in Resources */ = {isa = PBXBuildFile; fileRef = 89C12F361B8D0F8A10757646 /* reference.json */; };
 		8F82B70F92A796AC0C553B8C /* WeightFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059616D84E37E6D65A94D1BB /* WeightFile.swift */; };
 		941157658B04C0B05C28BD55 /* InsideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF48909C01E2C8B8AD8DBEF /* InsideView.swift */; };
+		AD3B922EAAEB4144051D6365 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105D7DC4036417E4C27EA09F /* Platform.swift */; };
 		B13348206DAE40DEE3601D97 /* GPT2Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62332BAD66DB17030DA109E /* GPT2Model.swift */; };
 		B32D2104B886053633A2E609 /* BPETokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A1F4B3BBFCCB3F3E5917E /* BPETokenizer.swift */; };
+		BAA2B29344D22298C21B3593 /* WeightFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059616D84E37E6D65A94D1BB /* WeightFile.swift */; };
 		BD86250E7A6B3D5F84E6CADA /* BenchmarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD7CD89FB7F742A6B817D3C /* BenchmarkTests.swift */; };
 		C298CA13276B305E5A62EBD4 /* PredictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8C8593477A37EE74C9254 /* PredictView.swift */; };
+		CB69FE83B91588F69FCABDDE /* TipJar.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 998421D8E90F20B4C7AD5C49 /* TipJar.storekit */; };
+		CBE6DC489C3222E73AE2C9F6 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 69ECF8094044D1AFCEBC3498 /* PrivacyInfo.xcprivacy */; };
 		CE399B5DC9C49420915EB611 /* InferenceEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB77360D49518F4D2045B0F /* InferenceEngine.swift */; };
+		D0DDF17ACFF05786548DD9CD /* InferenceEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB77360D49518F4D2045B0F /* InferenceEngine.swift */; };
 		DFE147ADA800006468B0007B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32FBE32B6163A7ED93E7FF1 /* ContentView.swift */; };
 		EEC5712DE29F063BC8258922 /* OrchNeuralNetworkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549EAC61E840586EC16F7B52 /* OrchNeuralNetworkApp.swift */; };
+		F6452FAADE9DB8E34D930F15 /* InsideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF48909C01E2C8B8AD8DBEF /* InsideView.swift */; };
+		FAC5BE56F40F3817025D1C19 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105D7DC4036417E4C27EA09F /* Platform.swift */; };
+		FC0CECE4A675D82A8376CF8A /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEEFF02E6E22AB6BDAEBAFE /* TipJarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		059616D84E37E6D65A94D1BB /* WeightFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightFile.swift; sourceTree = "<group>"; };
+		105D7DC4036417E4C27EA09F /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		15458C38DAE6BB2C3DBBA772 /* Benchmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benchmark.swift; sourceTree = "<group>"; };
 		1ADA3629CDA98F4EFF69F81D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		285014FEFAC718CFEC9B95C8 /* vocab.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = vocab.json; sourceTree = "<group>"; };
@@ -52,18 +83,25 @@
 		450EFD646D2863D1B4445D58 /* distilgpt2.tsw */ = {isa = PBXFileReference; path = distilgpt2.tsw; sourceTree = "<group>"; };
 		549EAC61E840586EC16F7B52 /* OrchNeuralNetworkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchNeuralNetworkApp.swift; sourceTree = "<group>"; };
 		57DFA1A6DA997ED84EA02DAB /* OrchNeuralNetwork.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = OrchNeuralNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EEEFF02E6E22AB6BDAEBAFE /* TipJarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarView.swift; sourceTree = "<group>"; };
 		5FBAE3ED2C564372EF30BC44 /* ModelReferenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelReferenceTests.swift; sourceTree = "<group>"; };
+		6441257C5303AA68A51664D0 /* TipJarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarTests.swift; sourceTree = "<group>"; };
 		69ECF8094044D1AFCEBC3498 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		6E4DE1E81123E557F978309E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		6E859FFB1C9EC25F5534E9E2 /* MacContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacContentView.swift; sourceTree = "<group>"; };
 		6FD7CD89FB7F742A6B817D3C /* BenchmarkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenchmarkTests.swift; sourceTree = "<group>"; };
 		72F8C8593477A37EE74C9254 /* PredictView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictView.swift; sourceTree = "<group>"; };
 		89C12F361B8D0F8A10757646 /* reference.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = reference.json; sourceTree = "<group>"; };
 		8D076A71C2CADBF735D3117E /* merges.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = merges.txt; sourceTree = "<group>"; };
+		998421D8E90F20B4C7AD5C49 /* TipJar.storekit */ = {isa = PBXFileReference; path = TipJar.storekit; sourceTree = "<group>"; };
 		A32FBE32B6163A7ED93E7FF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A6B0E6A90F610E121AE4CF75 /* TipJar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJar.swift; sourceTree = "<group>"; };
 		ABC04093F76A8BDB39FC4B2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B28DF5D0831958830E37F924 /* WeightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsView.swift; sourceTree = "<group>"; };
 		C99EFD0A5593E04205CAFA5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CF2517A86793CFEF38FEBF4E /* OrchNeuralNetworkMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrchNeuralNetworkMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF48909C01E2C8B8AD8DBEF /* InsideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideView.swift; sourceTree = "<group>"; };
+		E44AA84BF83023F28B84321C /* MacAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MacAssets.xcassets; sourceTree = "<group>"; };
 		EC4D86B163C416B2F469DD04 /* OrchNeuralNetworkTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = OrchNeuralNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F62332BAD66DB17030DA109E /* GPT2Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPT2Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				57DFA1A6DA997ED84EA02DAB /* OrchNeuralNetwork.app */,
+				CF2517A86793CFEF38FEBF4E /* OrchNeuralNetworkMac.app */,
 				EC4D86B163C416B2F469DD04 /* OrchNeuralNetworkTests.xctest */,
 			);
 			name = Products;
@@ -98,6 +137,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		41CEA98BD5B1789259AB0DBF /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				A6B0E6A90F610E121AE4CF75 /* TipJar.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		4C36AD4F1EC778CAB2115E5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,8 +152,11 @@
 				A32FBE32B6163A7ED93E7FF1 /* ContentView.swift */,
 				DDF48909C01E2C8B8AD8DBEF /* InsideView.swift */,
 				37CFEF347A5C6ED960C63751 /* LearnView.swift */,
+				6E859FFB1C9EC25F5534E9E2 /* MacContentView.swift */,
+				105D7DC4036417E4C27EA09F /* Platform.swift */,
 				72F8C8593477A37EE74C9254 /* PredictView.swift */,
 				6E4DE1E81123E557F978309E /* Theme.swift */,
+				5EEEFF02E6E22AB6BDAEBAFE /* TipJarView.swift */,
 				B28DF5D0831958830E37F924 /* WeightsView.swift */,
 			);
 			path = Views;
@@ -117,8 +167,17 @@
 			children = (
 				6FD7CD89FB7F742A6B817D3C /* BenchmarkTests.swift */,
 				5FBAE3ED2C564372EF30BC44 /* ModelReferenceTests.swift */,
+				6441257C5303AA68A51664D0 /* TipJarTests.swift */,
 			);
 			path = OrchNeuralNetworkTests;
+			sourceTree = "<group>";
+		};
+		87EF428F6B354ECE066D7077 /* StoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				998421D8E90F20B4C7AD5C49 /* TipJar.storekit */,
+			);
+			path = StoreKit;
 			sourceTree = "<group>";
 		};
 		887488FC4BE00FC60E8D2DE0 /* App */ = {
@@ -136,9 +195,18 @@
 				887488FC4BE00FC60E8D2DE0 /* App */,
 				D92997317F9D0A49F6EC6205 /* Engine */,
 				146B312C8BC8C56AA69CD07D /* Resources */,
+				41CEA98BD5B1789259AB0DBF /* Store */,
 				4C36AD4F1EC778CAB2115E5F /* Views */,
 			);
 			path = OrchNeuralNetwork;
+			sourceTree = "<group>";
+		};
+		C37B9F9C3672422506764834 /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				E44AA84BF83023F28B84321C /* MacAssets.xcassets */,
+			);
+			path = Mac;
 			sourceTree = "<group>";
 		};
 		D92997317F9D0A49F6EC6205 /* Engine */ = {
@@ -156,9 +224,11 @@
 		EAD89EDDC574B02EDA440F2C = {
 			isa = PBXGroup;
 			children = (
+				C37B9F9C3672422506764834 /* Mac */,
 				3E17BF94D11C38730C1CD812 /* Model */,
 				8A8A86972ED321B552C155D4 /* OrchNeuralNetwork */,
 				5E8B82622AA0865D280F6762 /* OrchNeuralNetworkTests */,
+				87EF428F6B354ECE066D7077 /* StoreKit */,
 				02885D6D85B1AE0C9D0BF4B1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,6 +236,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2738E83281AD8B9EE9E6CE91 /* OrchNeuralNetworkMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A021E1A2630E615AEF715B43 /* Build configuration list for PBXNativeTarget "OrchNeuralNetworkMac" */;
+			buildPhases = (
+				E641F272D43AD5FF289A6B92 /* Sources */,
+				3BD8567A16DE9E79C4DA822E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OrchNeuralNetworkMac;
+			packageProductDependencies = (
+			);
+			productName = OrchNeuralNetworkMac;
+			productReference = CF2517A86793CFEF38FEBF4E /* OrchNeuralNetworkMac.app */;
+			productType = "com.apple.product-type.application";
+		};
 		717DDDB2231C039C6FDC1A9C /* OrchNeuralNetworkTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6B7410149C705AB57A14A3FF /* Build configuration list for PBXNativeTarget "OrchNeuralNetworkTests" */;
@@ -212,6 +300,10 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					2738E83281AD8B9EE9E6CE91 = {
+						DevelopmentTeam = Z64KRUX3W3;
+						ProvisioningStyle = Automatic;
+					};
 					717DDDB2231C039C6FDC1A9C = {
 						DevelopmentTeam = Z64KRUX3W3;
 						ProvisioningStyle = Automatic;
@@ -237,16 +329,32 @@
 			projectRoot = "";
 			targets = (
 				A651504A774AA00782323FD4 /* OrchNeuralNetwork */,
+				2738E83281AD8B9EE9E6CE91 /* OrchNeuralNetworkMac */,
 				717DDDB2231C039C6FDC1A9C /* OrchNeuralNetworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3BD8567A16DE9E79C4DA822E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				144E590C76A3E11D16267E57 /* Assets.xcassets in Resources */,
+				6FC6E44D354FD6F8DCA97CF6 /* MacAssets.xcassets in Resources */,
+				CBE6DC489C3222E73AE2C9F6 /* PrivacyInfo.xcprivacy in Resources */,
+				57153322C69A328A5E8522BF /* distilgpt2.tsw in Resources */,
+				2AA2B58650DF7167EFFF6100 /* merges.txt in Resources */,
+				85A44703234825957F141B1D /* reference.json in Resources */,
+				0E1D30474E5D8777AE1DE101 /* vocab.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7C57052F2667EB10A94768DF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB69FE83B91588F69FCABDDE /* TipJar.storekit in Resources */,
 				8CDBE3CF81A25D274BDDD563 /* reference.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,9 +387,13 @@
 				CE399B5DC9C49420915EB611 /* InferenceEngine.swift in Sources */,
 				941157658B04C0B05C28BD55 /* InsideView.swift in Sources */,
 				629D9569102542A5D40547E8 /* LearnView.swift in Sources */,
+				2E831974ED8FA455C25DDD30 /* MacContentView.swift in Sources */,
 				EEC5712DE29F063BC8258922 /* OrchNeuralNetworkApp.swift in Sources */,
+				AD3B922EAAEB4144051D6365 /* Platform.swift in Sources */,
 				C298CA13276B305E5A62EBD4 /* PredictView.swift in Sources */,
 				277D3968BD5254B68343D1DE /* Theme.swift in Sources */,
+				807A2B7706970FE2B8CB7B50 /* TipJar.swift in Sources */,
+				FC0CECE4A675D82A8376CF8A /* TipJarView.swift in Sources */,
 				8F82B70F92A796AC0C553B8C /* WeightFile.swift in Sources */,
 				323E423C4586515E91740761 /* WeightsView.swift in Sources */,
 			);
@@ -293,6 +405,31 @@
 			files = (
 				BD86250E7A6B3D5F84E6CADA /* BenchmarkTests.swift in Sources */,
 				32D0AE6EDDC6D3AF323D06C0 /* ModelReferenceTests.swift in Sources */,
+				18660C75BE330E16F0EAA68A /* TipJarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E641F272D43AD5FF289A6B92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67E75F3D3009196272AF21F9 /* AboutView.swift in Sources */,
+				2F2715192ECD267512418AF4 /* BPETokenizer.swift in Sources */,
+				0CEF8A4C86389E9C8EB3348C /* Benchmark.swift in Sources */,
+				1EE031C8E43A9A2532EAB993 /* ContentView.swift in Sources */,
+				06C23F1CB5126BABA88274C0 /* GPT2Model.swift in Sources */,
+				D0DDF17ACFF05786548DD9CD /* InferenceEngine.swift in Sources */,
+				F6452FAADE9DB8E34D930F15 /* InsideView.swift in Sources */,
+				2E8CC0DCBEA5C985FE58BB6E /* LearnView.swift in Sources */,
+				456DA01538A018AAFDCC391E /* MacContentView.swift in Sources */,
+				3134DB02C2B038245557798A /* OrchNeuralNetworkApp.swift in Sources */,
+				FAC5BE56F40F3817025D1C19 /* Platform.swift in Sources */,
+				2C7F6B817CD5D239AB201AAD /* PredictView.swift in Sources */,
+				734D746EA58E22BC208859F1 /* Theme.swift in Sources */,
+				8AD172231199B32D476EE2A0 /* TipJar.swift in Sources */,
+				0B47E094AF6EC6F02AFDCD41 /* TipJarView.swift in Sources */,
+				BAA2B29344D22298C21B3593 /* WeightFile.swift in Sources */,
+				4F830A2E8FDB3372254DF499 /* WeightsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +478,54 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrchNeuralNetwork.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OrchNeuralNetwork";
 			};
 			name = Release;
+		};
+		51AF3BEA3336F4504A5E4506 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MacAppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mac/OrchNeuralNetworkMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrchNeuralNetwork/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Orch Neural Network";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Wonmo (John) Seong";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.OrchNeuralNetwork;
+				PRODUCT_NAME = "Orch Neural Network";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5677FAE4377294B2C176A698 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MacAppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mac/OrchNeuralNetworkMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrchNeuralNetwork/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Orch Neural Network";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Wonmo (John) Seong";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.OrchNeuralNetwork;
+				PRODUCT_NAME = "Orch Neural Network";
+				SDKROOT = macosx;
+			};
+			name = Debug;
 		};
 		6A1F6E667BBBE3B17B4D3CB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -397,7 +582,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = Z64KRUX3W3;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -412,12 +597,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "-Ounchecked";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -481,7 +666,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = Z64KRUX3W3;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -502,13 +687,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-Ounchecked";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -544,6 +729,15 @@
 			buildConfigurations = (
 				D41A86D05A72FEB5EA1B6B7A /* Debug */,
 				36EC66B2A7819016EFE63990 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A021E1A2630E615AEF715B43 /* Build configuration list for PBXNativeTarget "OrchNeuralNetworkMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5677FAE4377294B2C176A698 /* Debug */,
+				51AF3BEA3336F4504A5E4506 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

@@ -13,7 +13,7 @@ struct WeightsView: View {
                         Section {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text("\(file.totalParameters.grouped) parameters").font(Theme.display(22, relativeTo: .title3))
-                                Text("\(file.tensors.count) tensors · stored as 16-bit floats · \(file.header.model)")
+                                Text("\(file.tensors.count) tensors  |  stored as 16-bit floats  |  \(file.header.model)")
                                     .font(.caption).foregroundStyle(Theme.muted)
                                 Text("These numbers were fixed during training. Running the model only reads them.")
                                     .font(.caption).foregroundStyle(Theme.muted)
@@ -44,7 +44,7 @@ struct WeightsView: View {
                 }
             }
             .navigationTitle("Weights")
-            .navigationBarTitleDisplayMode(.inline)
+            .inlineTitle()
         }
     }
 
@@ -76,7 +76,7 @@ struct WeightsView: View {
             "wte.weight": "Token embeddings", "wpe.weight": "Position embeddings",
             "ln_f.weight": "Final LayerNorm scale", "ln_f.bias": "Final LayerNorm shift",
             "ln_1.weight": "LayerNorm 1 scale", "ln_1.bias": "LayerNorm 1 shift",
-            "attn.c_attn.weight": "Attention Q·K·V projection", "attn.c_attn.bias": "Attention Q·K·V bias",
+            "attn.c_attn.weight": "Attention Q, K, V projection", "attn.c_attn.bias": "Attention Q, K, V bias",
             "attn.c_proj.weight": "Attention output projection", "attn.c_proj.bias": "Attention output bias",
             "ln_2.weight": "LayerNorm 2 scale", "ln_2.bias": "LayerNorm 2 shift",
             "mlp.c_fc.weight": "MLP expand (768 → 3072)", "mlp.c_fc.bias": "MLP expand bias",
@@ -89,7 +89,7 @@ struct WeightsView: View {
 struct TensorDetailView: View {
     let tensor: TensorInfo
     let file: WeightFile
-    @State private var image: UIImage?
+    @State private var image: PlatformImage?
     @State private var stats: (min: Float, max: Float, mean: Float, std: Float)?
     @State private var zoom: CGFloat = 1
 
@@ -100,21 +100,21 @@ struct TensorDetailView: View {
                 VStack(alignment: .leading, spacing: 14) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(WeightsView.pretty(tensor.name)).font(.title3.weight(.semibold))
-                        Text("\(tensor.name) · \(tensor.shapeDescription) · \(tensor.count.grouped) values")
+                        Text("\(tensor.name)  |  \(tensor.shapeDescription)  |  \(tensor.count.grouped) values")
                             .font(.caption.monospaced()).foregroundStyle(Theme.muted)
                     }
                     .card()
                     if let image {
                         ScrollView([.horizontal, .vertical]) {
-                            Image(uiImage: image)
+                            Image(platformImage: image)
                                 .interpolation(.none)
                                 .resizable()
                                 .aspectRatio(CGFloat(image.size.width / image.size.height), contentMode: .fit)
-                                .frame(width: 360 * zoom)
+                                .frame(width: (PlatformLayout.isMac ? 760 : 360) * zoom)
                                 .clipShape(Rectangle())
                         }
                         .frame(maxWidth: .infinity)
-                        .frame(height: 380)
+                        .frame(height: PlatformLayout.isMac ? 620 : 380)
                         .gesture(MagnifyGesture().onChanged { zoom = min(8, max(1, $0.magnification)) })
                         HStack {
                             Text("Zoom").font(.caption)
@@ -133,10 +133,11 @@ struct TensorDetailView: View {
                     }
                 }
                 .padding()
+                .readableWidth()
             }
         }
         .navigationTitle("Tensor")
-        .navigationBarTitleDisplayMode(.inline)
+        .inlineTitle()
         .task(id: tensor.name) { await load() }
     }
 
@@ -147,7 +148,7 @@ struct TensorDetailView: View {
 
     private func load() async {
         let t = tensor, f = file
-        let result: (UIImage?, (Float, Float, Float, Float))? = await Task.detached(priority: .userInitiated) {
+        let result: (PlatformImage?, (Float, Float, Float, Float))? = await Task.detached(priority: .userInitiated) {
             let isVector = t.shape.count == 1
             let rows = isVector ? 1 : min(t.shape[0], 256)
             let cols = isVector ? min(t.shape[0], 768) : min(t.shape.dropFirst().reduce(1, *), 256)

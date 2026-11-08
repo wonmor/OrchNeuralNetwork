@@ -18,12 +18,14 @@ struct LearnView: View {
                                 .font(.footnote).foregroundStyle(Theme.muted).card()
                         }
                         outro
+                        SupportLink()
                     }
                     .padding()
+                    .readableWidth()
                 }
             }
             .navigationTitle("How it works")
-            .navigationBarTitleDisplayMode(.inline)
+            .inlineTitle()
         }
     }
 
@@ -39,14 +41,10 @@ struct LearnView: View {
     private func step(_ n: Int, _ title: String, _ body: String, @ViewBuilder content: () -> some View) -> some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline, spacing: 8) {
-                let mark: BauhausMark = [.circle, .square, .triangle][(n - 1) % 3]
                 let fill: Color = [Theme.red, Theme.blue, Theme.yellow][(n - 1) % 3]
-                ZStack {
-                    MarkShape(mark: mark, color: fill, size: 28)
-                    Text("\(n)").font(Theme.display(13, relativeTo: .caption))
-                        .foregroundStyle(fill == Theme.yellow ? Theme.ink : .white)
-                        .offset(x: mark == .triangle ? -3 : 0)
-                }
+                Text("\(n)").font(Theme.display(26, relativeTo: .title2))
+                    .foregroundStyle(fill == Theme.yellow ? Theme.ink : fill)
+                    .frame(minWidth: 28)
                 Text(title.uppercased()).font(Theme.display(15, relativeTo: .headline)).tracking(0.5)
             }
             content()
@@ -84,7 +82,7 @@ struct LearnView: View {
         for h in l0.attention { for i in 0 ..< T * T { avg[i] += h[i] / Float(l0.attention.count) } }
         return step(3, "Attention: tokens look at each other",
                     "In every layer, each token computes a query, and every earlier token offers a key. Where they match, information flows. Twelve heads do this in parallel, each learning its own habit: one tracks the previous word, another finds the subject of the sentence. This is layer 0, averaged over heads.") {
-            AttentionHeatmap(matrix: avg, tokens: t.tokens).frame(height: min(260, CGFloat(T) * 20 + 40))
+            AttentionHeatmap(matrix: avg, tokens: t.tokens).frame(height: min(260 * PlatformLayout.canvas, CGFloat(T) * 20 * PlatformLayout.canvas + 40))
         }
     }
 
@@ -92,7 +90,7 @@ struct LearnView: View {
         let last = t.layers[t.layers.count - 1]
         return step(4, "MLP: each token thinks on its own",
                     "After attention, each token's vector is expanded to 3,072 numbers, passed through a nonlinearity, and squeezed back to 768. This is where much of the model's stored knowledge lives. In the last layer \(Int(last.mlpActiveFraction * 100))% of neurons fired for your last token.") {
-            NeuronGrid(activations: last.mlpActivations).frame(height: 100)
+            NeuronGrid(activations: last.mlpActivations).frame(height: 100 * PlatformLayout.canvas)
         }
     }
 

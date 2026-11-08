@@ -3,7 +3,7 @@ import SwiftUI
 /// The "keyboard" demo: type, get QuickType-style suggestions, and watch the network fire.
 struct PredictView: View {
     @Environment(InferenceEngine.self) private var engine
-    @State private var showAbout = false
+    @State private var showAbout = !PlatformLayout.isMac && UserDefaults.standard.bool(forKey: "showAbout")   // `-showAbout 1` (QA, review screenshots)
     @FocusState private var focused: Bool
 
     var body: some View {
@@ -25,30 +25,33 @@ struct PredictView: View {
                             }
                             .card()
                             VStack(alignment: .leading, spacing: 10) {
-                                SectionTitle(text: "Your text as tokens", subtitle: "\(trace.tokenCount) tokens · ␣ marks a leading space", mark: .circle, color: Theme.red)
+                                SectionTitle(text: "Your text as tokens", subtitle: "\(trace.tokenCount) tokens  |  ␣ marks a leading space", mark: .circle, color: Theme.red)
                                 TokenStrip(tokens: trace.tokens, highlightLast: true)
                             }
                             .card()
                         }
                     }
                     .padding()
+                    .readableWidth()
                 }
-                .scrollDismissesKeyboard(.interactively)
+                .dismissKeyboardOnScroll()
             }
             .navigationTitle("Orch Neural Network")
-            .navigationBarTitleDisplayMode(.inline)
+            .inlineTitle()
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .trailingBar) {
                     Button { showAbout = true } label: { Image(systemName: "info.circle") }
                 }
+                #if os(iOS)
                 ToolbarItem(placement: .keyboard) {
                     HStack {
                         Spacer()
                         Button("Done") { focused = false }
                     }
                 }
+                #endif
             }
-            .sheet(isPresented: $showAbout) { AboutView() }
+            .sheet(isPresented: $showAbout) { AboutView().macSheetFrame() }
         }
     }
 
@@ -65,8 +68,7 @@ struct PredictView: View {
                 .padding(12)
                 .background(Theme.sheet)
                 .overlay(Rectangle().stroke(Theme.ink, lineWidth: Theme.rule))
-                .autocorrectionDisabled()
-                .textInputAutocapitalization(.never)
+                .plainTextInput()
             HStack {
                 ForEach(["I am going to the", "The weather today is", "My favourite food is"], id: \.self) { s in
                     Button { self.engine.text = s + " " } label: {
@@ -93,7 +95,7 @@ struct PredictView: View {
                     ForEach(Array(engine.suggestions.enumerated()), id: \.element.id) { idx, s in
                         Button {
                             engine.accept(s)
-                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                            Haptics.light()
                         } label: {
                             VStack(spacing: 2) {
                                 Text(s.display).font(.body.weight(.medium)).lineLimit(1).minimumScaleFactor(0.7)
@@ -114,7 +116,7 @@ struct PredictView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
                 SectionTitle(text: "Signal through the network",
-                             subtitle: engine.trace.map { "6 layers · \(Int($0.elapsedMilliseconds)) ms on device" } ?? "Waiting for input", mark: .square, color: Theme.blue)
+                             subtitle: engine.trace.map { "6 layers  |  \(Int($0.elapsedMilliseconds)) ms on device" } ?? "Waiting for input", mark: .square, color: Theme.blue)
                 NavigationLink { InsideView() } label: { Text("Open visualiser").font(.caption) }
             }
             LayerPulseView(trace: engine.trace)
@@ -161,29 +163,19 @@ struct LayerPulseView: View {
     }
 }
 
-/// Header composition: input tokens (circles) feed layers (squares) that produce a prediction (triangle).
+/// Header: a network glyph and the app's promise.
 struct BauhausBanner: View {
     var body: some View {
         HStack(spacing: 14) {
-            Canvas { ctx, size in
-                let w = size.width, h = size.height
-                let ins = [CGPoint(x: w * 0.12, y: h * 0.2), CGPoint(x: w * 0.12, y: h * 0.5), CGPoint(x: w * 0.12, y: h * 0.8)]
-                let mid = [CGPoint(x: w * 0.5, y: h * 0.32), CGPoint(x: w * 0.5, y: h * 0.7)]
-                let out = CGPoint(x: w * 0.86, y: h * 0.5)
-                ctx.fill(Path(ellipseIn: CGRect(x: w * 0.3, y: -h * 0.05, width: h * 1.1, height: h * 1.1)), with: .color(Theme.yellow))
-                var lines = Path()
-                for a in ins { for b in mid { lines.move(to: a); lines.addLine(to: b) } }
-                for a in mid { lines.move(to: a); lines.addLine(to: out) }
-                ctx.stroke(lines, with: .color(Theme.ink), lineWidth: 3)
-                for p in ins { ctx.fill(Path(ellipseIn: CGRect(x: p.x - 7, y: p.y - 7, width: 14, height: 14)), with: .color(Theme.ink)) }
-                ctx.fill(Path(ellipseIn: CGRect(x: mid[0].x - 11, y: mid[0].y - 11, width: 22, height: 22)), with: .color(Theme.red))
-                ctx.fill(Path(CGRect(x: mid[1].x - 10, y: mid[1].y - 10, width: 20, height: 20)), with: .color(Theme.blue))
-                ctx.fill(Triangle().path(in: CGRect(x: out.x - 12, y: out.y - 14, width: 24, height: 28)), with: .color(Theme.ink))
-            }
-            .frame(width: 120, height: 76)
+            Image(systemName: "point.3.connected.trianglepath.dotted")
+                .font(.system(size: 38, weight: .semibold))
+                .foregroundStyle(Theme.ink)
+                .frame(width: 76, height: 76)
+                .background(Theme.yellow)
+                .overlay(Rectangle().stroke(Theme.ink, lineWidth: Theme.rule))
             VStack(alignment: .leading, spacing: 4) {
                 Text("WATCH A LANGUAGE MODEL THINK").font(Theme.display(17, relativeTo: .title3)).lineLimit(2).minimumScaleFactor(0.8)
-                Text("82 million weights · 6 layers · on this device").font(.caption).foregroundStyle(Theme.muted)
+                Text("82 million weights  |  6 layers  |  on this device").font(.caption).foregroundStyle(Theme.muted)
             }
             Spacer(minLength: 0)
         }
