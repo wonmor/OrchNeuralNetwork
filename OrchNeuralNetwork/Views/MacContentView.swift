@@ -20,10 +20,12 @@ final class MacNavigation {
 struct MacContentView: View {
     @Environment(InferenceEngine.self) private var engine
     @Environment(MacNavigation.self) private var nav
+    /// Screenshot mode (`-shotWindow 1`, debug) collapses the sidebar, which offscreen rendering cannot draw.
+    @State private var columns: NavigationSplitViewVisibility = UserDefaults.standard.bool(forKey: "shotWindow") ? .detailOnly : .automatic
 
     var body: some View {
         @Bindable var nav = nav
-        NavigationSplitView {
+        NavigationSplitView(columnVisibility: $columns) {
             List(selection: $nav.section) {
                 Section("Orch Neural Network") {
                     ForEach(MacNavigation.Section.allCases) { s in
