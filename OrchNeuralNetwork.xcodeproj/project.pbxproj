@@ -450,7 +450,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = OrchNeuralNetwork/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Orch Neural Network";
+				INFOPLIST_KEY_CFBundleDisplayName = "Inside LLM";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,7 +489,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OrchNeuralNetwork/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Orch Neural Network";
+				INFOPLIST_KEY_CFBundleDisplayName = "Inside LLM";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Wonmo (John) Seong";
@@ -498,7 +498,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.OrchNeuralNetwork;
-				PRODUCT_NAME = "Orch Neural Network";
+				PRODUCT_NAME = "Inside LLM";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -513,7 +513,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OrchNeuralNetwork/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Orch Neural Network";
+				INFOPLIST_KEY_CFBundleDisplayName = "Inside LLM";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Wonmo (John) Seong";
@@ -522,7 +522,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.OrchNeuralNetwork;
-				PRODUCT_NAME = "Orch Neural Network";
+				PRODUCT_NAME = "Inside LLM";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -533,7 +533,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = OrchNeuralNetwork/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Orch Neural Network";
+				INFOPLIST_KEY_CFBundleDisplayName = "Inside LLM";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -582,7 +582,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = Z64KRUX3W3;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -666,7 +666,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = Z64KRUX3W3;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

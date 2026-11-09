@@ -27,7 +27,7 @@ struct MacContentView: View {
         @Bindable var nav = nav
         NavigationSplitView(columnVisibility: $columns) {
             List(selection: $nav.section) {
-                Section("Orch Neural Network") {
+                Section("Inside LLM") {
                     ForEach(MacNavigation.Section.allCases) { s in
                         Label(s.title, systemImage: s.glyph).tag(s)
                     }
@@ -125,7 +125,7 @@ struct MacCommands: Commands {
 
     var body: some Commands {
         CommandGroup(replacing: .appInfo) {
-            Button("About Orch Neural Network") { nav.showAbout = true }
+            Button("About Inside LLM") { nav.showAbout = true }
         }
         CommandGroup(after: .sidebar) {
             ForEach(MacNavigation.Section.allCases) { s in

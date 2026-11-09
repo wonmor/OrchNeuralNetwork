@@ -7,7 +7,7 @@ import StoreKit
 enum TipJar {
     static let productIDs = ["orchnn.tip.small", "orchnn.tip.medium", "orchnn.tip.large"]
 
-    static let disclaimer = "Tips are optional, unlock nothing, and are not tax-deductible. Everything in Orch Neural Network stays free."
+    static let disclaimer = "Tips are optional, unlock nothing, and are not tax-deductible. Everything in Inside LLM stays free."
 
     /// Names used when the store has not supplied one (the store's localized name wins).
     static let fallbackNames = [
@@ -16,8 +16,8 @@ enum TipJar {
         "orchnn.tip.large": "Large tip",
     ]
 
-    static let intro = "Orch Neural Network is free, with no ads and no tracking. If it has helped you see how language models work, you can leave a tip to support its development."
-    static let thanks = "Thank you, truly. Your tip keeps Orch Neural Network free, offline and open about how it works, and goes into the next things I build."
+    static let intro = "Inside LLM is free, with no ads and no tracking. If it has helped you see how language models work, you can leave a tip to support its development."
+    static let thanks = "Thank you, truly. Your tip keeps Inside LLM free, offline and open about how it works, and goes into the next things I build."
     static let pending = "Your tip is waiting for approval, for example by a parent through Ask to Buy. Nothing more to do here; if it goes through, thank you."
     static let unavailable = "Store unavailable. Check your connection and try again."
     static let unverified = "The App Store couldn't verify that purchase, so it wasn't completed."

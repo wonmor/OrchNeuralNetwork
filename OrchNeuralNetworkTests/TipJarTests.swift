@@ -28,7 +28,7 @@ final class TipJarTests: XCTestCase {
             XCTAssertFalse(text.lowercased().contains("donat"), text)
             XCTAssertFalse(text.contains("·") || text.contains("•"), text)
         }
-        XCTAssertEqual(TipJar.disclaimer, "Tips are optional, unlock nothing, and are not tax-deductible. Everything in Orch Neural Network stays free.")
+        XCTAssertEqual(TipJar.disclaimer, "Tips are optional, unlock nothing, and are not tax-deductible. Everything in Inside LLM stays free.")
         XCTAssertTrue(TipJar.unavailable.hasPrefix("Store unavailable"))
     }
 

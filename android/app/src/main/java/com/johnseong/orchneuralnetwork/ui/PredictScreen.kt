@@ -40,7 +40,7 @@ import kotlinx.coroutines.delay
 @Composable
 fun PredictScreen(engine: InferenceEngine, onAbout: () -> Unit, onOpenInside: () -> Unit) {
     Column(Modifier.fillMaxSize()) {
-        TopBar("Orch Neural Network") { GlyphButton(Icons.Outlined.Info, "About and tip jar", onAbout) }
+        TopBar("Inside LLM") { GlyphButton(Icons.Outlined.Info, "About and tip jar", onAbout) }
         Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
             Banner()
             InputCard(engine)

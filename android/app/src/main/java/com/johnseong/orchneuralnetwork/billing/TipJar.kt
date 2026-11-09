@@ -10,9 +10,9 @@ import com.android.billingclient.api.Purchase.PurchaseState
 object TipJar {
     val productIds = listOf("orchnn.tip.small", "orchnn.tip.medium", "orchnn.tip.large")
 
-    const val DISCLAIMER = "Tips are optional, unlock nothing, and are not tax-deductible. Everything in Orch Neural Network stays free."
-    const val INTRO = "Orch Neural Network is free, with no ads and no tracking. If it has helped you see how language models work, you can leave a tip to support its development."
-    const val THANKS = "Thank you, truly. Your tip keeps Orch Neural Network free, offline and open about how it works, and goes into the next things I build."
+    const val DISCLAIMER = "Tips are optional, unlock nothing, and are not tax-deductible. Everything in Inside LLM stays free."
+    const val INTRO = "Inside LLM is free, with no ads and no tracking. If it has helped you see how language models work, you can leave a tip to support its development."
+    const val THANKS = "Thank you, truly. Your tip keeps Inside LLM free, offline and open about how it works, and goes into the next things I build."
     const val PENDING = "Your tip is pending, for example waiting on a cash payment or a family manager's approval. Nothing more to do here; if it goes through, thank you."
     const val UNAVAILABLE = "Store unavailable. Check your connection and try again."
 

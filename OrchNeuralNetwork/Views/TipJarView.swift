@@ -129,7 +129,7 @@ struct SupportLink: View {
     @State private var open = false
     var body: some View {
         Button { open = true } label: {
-            Label("Support Orch Neural Network", systemImage: "cup.and.saucer")
+            Label("Support Inside LLM", systemImage: "cup.and.saucer")
                 .font(.footnote)
                 .foregroundStyle(Theme.muted)
                 .underline()

@@ -1,4 +1,4 @@
-Ever wondered what your keyboard is doing when it suggests the next word? Orch Neural Network runs a real language model on your iPhone or iPad and draws every step of its thinking.
+Ever wondered what your keyboard is doing when it suggests the next word? Inside LLM runs a real language model on your iPhone or iPad and draws every step of its thinking.
 
 This is not a chatbot and not an online service. The app contains its own transformer inference engine, written from scratch in Swift on Apple's Accelerate framework, and computes the full network on your device after every keystroke so that every intermediate number can be shown.
 

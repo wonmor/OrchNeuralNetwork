@@ -43,7 +43,7 @@ fun AboutScreen(config: ModelConfig?, parameters: Long, tips: TipJarUi, actions:
         Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp).widthIn(max = 720.dp),
             verticalArrangement = Arrangement.spacedBy(14.dp)) {
             Card {
-                Text("Orch Neural Network", style = display(24.sp))
+                Text("Inside LLM", style = display(24.sp))
                 Footnote("See inside a language model while it predicts your next word.")
             }
             TipJarPanel(tips, actions)
@@ -157,7 +157,7 @@ fun SupportLink(onClick: () -> Unit) {
     Row(Modifier.heightIn(min = Palette.TapTarget).clickable(role = Role.Button, onClick = onClick),
         verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
         Icon(Icons.Outlined.LocalCafe, contentDescription = null, tint = Palette.Muted, modifier = Modifier.size(16.dp))
-        Text("Support Orch Neural Network", style = body(14.sp, color = Palette.Muted).copy(textDecoration = TextDecoration.Underline))
+        Text("Support Inside LLM", style = body(14.sp, color = Palette.Muted).copy(textDecoration = TextDecoration.Underline))
     }
 }
 

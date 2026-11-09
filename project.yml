@@ -13,7 +13,7 @@ settings:
     SWIFT_VERSION: "5.0"
     SWIFT_STRICT_CONCURRENCY: minimal
     MARKETING_VERSION: "1.1"
-    CURRENT_PROJECT_VERSION: "4"
+    CURRENT_PROJECT_VERSION: "5"
     TARGETED_DEVICE_FAMILY: "1,2"
     ENABLE_USER_SCRIPT_SANDBOXING: YES
     ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
@@ -42,11 +42,11 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.johnseong.OrchNeuralNetwork
         PRODUCT_NAME: OrchNeuralNetwork
-        INFOPLIST_KEY_CFBundleDisplayName: Orch Neural Network
+        INFOPLIST_KEY_CFBundleDisplayName: Inside LLM
     info:
       path: OrchNeuralNetwork/Info.plist
       properties:
-        CFBundleDisplayName: Orch Neural Network
+        CFBundleDisplayName: Inside LLM
         CFBundleName: OrchNeuralNetwork
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
@@ -87,14 +87,14 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.johnseong.OrchNeuralNetwork
-        PRODUCT_NAME: Orch Neural Network
+        PRODUCT_NAME: Inside LLM
         # Apple silicon only: the engine uses Float16, which Intel Macs lack.
         ARCHS: arm64
         ASSETCATALOG_COMPILER_APPICON_NAME: MacAppIcon
         CODE_SIGN_ENTITLEMENTS: Mac/OrchNeuralNetworkMac.entitlements
         ENABLE_HARDENED_RUNTIME: YES
         GENERATE_INFOPLIST_FILE: YES
-        INFOPLIST_KEY_CFBundleDisplayName: Orch Neural Network
+        INFOPLIST_KEY_CFBundleDisplayName: Inside LLM
         INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.education
         INFOPLIST_KEY_NSHumanReadableCopyright: "© 2026 Wonmo (John) Seong"
         INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO

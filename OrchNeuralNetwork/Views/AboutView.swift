@@ -11,7 +11,7 @@ struct AboutView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 14) {
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("Orch Neural Network").font(Theme.display(24, relativeTo: .title2))
+                            Text("Inside LLM").font(Theme.display(24, relativeTo: .title2))
                             Text("See inside a language model while it predicts your next word.")
                                 .font(.footnote).foregroundStyle(Theme.muted)
                         }

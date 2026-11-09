@@ -36,7 +36,7 @@ struct PredictView: View {
                 }
                 .dismissKeyboardOnScroll()
             }
-            .navigationTitle("Orch Neural Network")
+            .navigationTitle("Inside LLM")
             .inlineTitle()
             .toolbar {
                 ToolbarItem(placement: .trailingBar) {

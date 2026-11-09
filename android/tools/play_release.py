@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Google Play release for Orch Neural Network (com.johnseong.orchneuralnetwork).
+"""Google Play release for Inside LLM (com.johnseong.orchneuralnetwork).
 
 The app must first exist in Play Console (created by hand) and the service account must have access.
 
@@ -16,7 +16,8 @@ Key: PLAY_SA_JSON (default ~/Documents/keys/havit-play.json). Listing assets com
 import base64, glob, json, os, subprocess, sys, tempfile, time, urllib.error, urllib.parse, urllib.request
 
 PKG = "com.johnseong.orchneuralnetwork"
-LANG = "en-GB"
+LANG = "en-US"  # Play default language chosen at Create app; en-GB added as a second listing
+LANGS = ("en-US", "en-GB")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PLAY = os.path.expanduser(os.environ.get("PLAY_DIR", "~/Documents/sr-video/screens/orchnn/play"))
 # The signed AAB is kept beside the listing (build outputs get cleaned); fall back to the Gradle output.
@@ -85,19 +86,21 @@ def listing():
     for t in (NOTES, text("short-description.txt"), text("full-description.txt")):
         assert "·" not in t and "•" not in t
     print("details", call(API + f"/edits/{eid}/details", "PATCH", {"defaultLanguage": LANG, "contactEmail": "john@orchestrsim.com"}))
-    print("listing", call(API + f"/edits/{eid}/listings/{LANG}", "PUT", {
-        "language": LANG, "title": text("title.txt"),
-        "shortDescription": text("short-description.txt"), "fullDescription": text("full-description.txt")}).get("title"))
+    for lang in LANGS:
+        print("listing", lang, call(API + f"/edits/{eid}/listings/{lang}", "PUT", {
+            "language": lang, "title": text("title.txt"),
+            "shortDescription": text("short-description.txt"), "fullDescription": text("full-description.txt")}).get("title"))
     imgs = {"icon": ["play-icon-512.png"], "featureGraphic": ["feature-graphic-1024x500.png"],
             "phoneScreenshots": sorted(glob.glob(os.path.join(PLAY, "screenshots", "phone", "*.png"))),
             "sevenInchScreenshots": sorted(glob.glob(os.path.join(PLAY, "screenshots", "tablet7", "*.png"))),
             "tenInchScreenshots": sorted(glob.glob(os.path.join(PLAY, "screenshots", "tablet10", "*.png")))}
-    for kind, files in imgs.items():
-        call(API + f"/edits/{eid}/listings/{LANG}/{kind}", "DELETE")
-        for f in files:
-            r = call(UPLOAD + f"/edits/{eid}/listings/{LANG}/{kind}?uploadType=media", "POST",
-                     raw=open(os.path.join(PLAY, f), "rb").read(), ctype="image/png")
-            print(kind, os.path.basename(f), "ok" if "image" in r else r)
+    for lang in LANGS:
+        for kind, files in imgs.items():
+            call(API + f"/edits/{eid}/listings/{lang}/{kind}", "DELETE")
+            for f in files:
+                r = call(UPLOAD + f"/edits/{eid}/listings/{lang}/{kind}?uploadType=media", "POST",
+                         raw=open(os.path.join(PLAY, f), "rb").read(), ctype="image/png")
+                print(lang, kind, os.path.basename(f), "ok" if "image" in r else r)
     commit(eid)
 
 
@@ -156,7 +159,7 @@ def products():
             opt["newRegionsConfig"] = {"usdPrice": money(other["usdPrice"]), "eurPrice": money(other["eurPrice"]),
                                        "availability": "AVAILABLE"}
         body = {"packageName": PKG, "productId": sku,
-                "listings": [{"languageCode": loc, "title": title, "description": desc} for loc in (LANG, "en-US")],
+                "listings": [{"languageCode": loc, "title": title, "description": desc} for loc in LANGS],
                 "purchaseOptions": [opt]}
         q = "?allowMissing=true&updateMask=listings,purchaseOptions&regionsVersion.version=2026/01"
         r = call(API + f"/onetimeproducts/{sku}{q}", "PATCH", body)
