@@ -26,8 +26,8 @@ android {
         applicationId = "com.johnseong.orchneuralnetwork"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.0.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // 64-bit only: the 164 MB model plus activations needs a 64-bit address space anyway.
         ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
